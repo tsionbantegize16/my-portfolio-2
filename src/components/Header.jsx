@@ -1,111 +1,131 @@
 import React, { useState, useEffect } from 'react';
-import { FiMenu, FiX, FiMoon, FiSun } from 'react-icons/fi'; // Icons for menu and dark mode
+import { FiMenu, FiX, FiMoon, FiSun } from 'react-icons/fi';
 import { useDarkMode } from '../contexts/DarkModeContext';
+
+const navItems = [
+  { id: 'home', label: 'Home' },
+  { id: 'about', label: 'About' },
+  { id: 'skills', label: 'Skills' },
+  { id: 'services', label: 'Services' },
+  { id: 'portfolio', label: 'Projects' },
+  { id: 'contact', label: 'Contact' },
+];
 
 const Header = () => {
   const { darkMode, toggleDarkMode } = useDarkMode();
-  const [isOpen, setIsOpen] = useState(false); // State for mobile menu open/close
-  const [mounted, setMounted] = useState(false); // Prevent hydration mismatch
+  const [isOpen, setIsOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const [active, setActive] = useState('home');
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  // Scroll spy to highlight active section
+  useEffect(() => {
+    const handler = () => {
+      const offsets = navItems.map(item => {
+        const el = document.getElementById(item.id);
+        if (!el) return { id: item.id, top: Number.POSITIVE_INFINITY };
+        const rect = el.getBoundingClientRect();
+        return { id: item.id, top: Math.abs(rect.top - 100) };
+      });
+      offsets.sort((a, b) => a.top - b.top);
+      setActive(offsets[0].id);
+    };
+    handler();
+    window.addEventListener('scroll', handler, { passive: true });
+    return () => window.removeEventListener('scroll', handler);
+  }, []);
 
-  // Close menu when a link is clicked
-  const handleNavLinkClick = () => {
-    setIsOpen(false);
-  };
+  const toggleMenu = () => setIsOpen(!isOpen);
+  const handleNavLinkClick = () => setIsOpen(false);
 
-  // Prevent hydration mismatch by not rendering until mounted
   if (!mounted) {
     return (
-      <header className="fixed w-full top-0 left-0 z-50 bg-white dark:bg-gray-950 shadow-md transition-all duration-300 ease-in-out">
+      <header className="fixed w-full top-0 left-0 z-50 bg-primary-50/95 dark:bg-primary-400/95 shadow-md transition-all duration-300 ease-in-out">
         <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
-          <a href="#home" className="text-2xl font-bold text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-300">
-            Tsi
-          </a>
+          <a href="#home" className="text-2xl font-bold text-primary-200">Tsi</a>
         </nav>
       </header>
     );
   }
 
   return (
-    <header className="fixed w-full top-0 left-0 z-50 bg-primary-50/95 dark:bg-primary-400/95 backdrop-blur-sm shadow-lg transition-all duration-300 ease-in-out">
-      <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
-        {/* Logo */}
-        <a href="#home" className="text-2xl font-bold text-primary-200 dark:text-primary-200 hover:text-primary-300 dark:hover:text-primary-100 transition-colors duration-300">
-          Tsi
-        </a>
+    <header className="fixed w-full top-0 left-0 z-50 bg-primary-50/80 dark:bg-primary-400/80 backdrop-blur-xl shadow-lg">
+      <nav className="container mx-auto px-6 py-3 flex justify-between items-center">
+        {/* Brand */}
+        <a href="#home" className="text-2xl tracking-tight font-extrabold text-primary-200 hover:text-primary-300 transition-colors">Tsi</a>
 
-        {/* Mobile menu button */}
-        <div className="md:hidden flex items-center space-x-4">
-          <button 
-            onClick={toggleDarkMode} 
-            className="relative p-2 rounded-full bg-primary-100 dark:bg-primary-400 hover:bg-primary-200 dark:hover:bg-primary-300 transition-all duration-300 ease-in-out group"
+        {/* Desktop Nav */}
+        <div className="hidden md:flex items-center gap-2">
+          {navItems.map(item => (
+            <a
+              key={item.id}
+              href={`#${item.id}`}
+              className={`relative px-4 py-2 rounded-full text-sm font-medium transition-colors duration-300 
+                ${active === item.id ? 'text-primary-50 bg-primary-300/80' : 'text-primary-400 hover:text-primary-300 hover:bg-primary-100'}`}
+            >
+              {item.label}
+              <span className={`absolute left-4 right-4 -bottom-0.5 h-0.5 rounded-full transition-all duration-300 ${active === item.id ? 'bg-primary-50 scale-x-100' : 'bg-transparent scale-x-0'}`}></span>
+            </a>
+          ))}
+
+          {/* Dark Mode Toggle */}
+          <button
+            onClick={toggleDarkMode}
+            className="ml-3 relative inline-flex items-center justify-center w-11 h-11 rounded-full bg-primary-100 dark:bg-primary-300/40 border border-primary-200/60 dark:border-primary-300/40 shadow-sm hover:shadow-md transition-all"
             aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
           >
-            <div className={`absolute inset-0 rounded-full transition-transform duration-500 ease-in-out ${
-              darkMode ? 'rotate-180' : 'rotate-0'
-            }`}>
+            <div className={`transition-transform duration-500 ${darkMode ? 'rotate-180' : 'rotate-0'}`}>
               {darkMode ? (
-                <FiSun className="text-primary-200 text-xl group-hover:scale-110 transition-transform duration-300" />
+                <FiSun className="text-primary-200 text-xl" />
               ) : (
-                <FiMoon className="text-primary-400 text-xl group-hover:scale-110 transition-transform duration-300" />
+                <FiMoon className="text-primary-400 text-xl" />
               )}
             </div>
           </button>
-          <button 
-            onClick={toggleMenu} 
-            className="text-primary-400 dark:text-primary-100 focus:outline-none text-2xl p-2 rounded-full hover:bg-primary-100 dark:hover:bg-primary-400 transition-colors duration-300"
-            aria-label="Toggle menu"
-          >
-            {isOpen ? <FiX /> : <FiMenu />}
-          </button>
         </div>
 
-        {/* Desktop Navbar */}
-        <ul className="hidden md:flex items-center space-x-8">
-          <li><a href="#home" className="nav-link">Home</a></li>
-          <li><a href="#about" className="nav-link">About</a></li>
-          <li><a href="#skills" className="nav-link">Skills</a></li>
-          <li><a href="#services" className="nav-link">Services</a></li>
-          <li><a href="#portfolio" className="nav-link">Projects</a></li>
-          <li><a href="#contact" className="nav-link">Contact</a></li>
-          <li>
-            <button 
-              onClick={toggleDarkMode} 
-              className="relative p-2 rounded-full bg-primary-100 dark:bg-primary-400 hover:bg-primary-200 dark:hover:bg-primary-300 transition-all duration-300 ease-in-out group"
-              aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-            >
-              <div className={`absolute inset-0 rounded-full transition-transform duration-500 ease-in-out ${
-                darkMode ? 'rotate-180' : 'rotate-0'
-              }`}>
-                {darkMode ? (
-                  <FiSun className="text-primary-200 text-xl group-hover:scale-110 transition-transform duration-300" />
-                ) : (
-                  <FiMoon className="text-primary-400 text-xl group-hover:scale-110 transition-transform duration-300" />
-                )}
-              </div>
-            </button>
-          </li>
-        </ul>
+        {/* Mobile controls */}
+        <div className="md:hidden flex items-center gap-2">
+          <button
+            onClick={toggleDarkMode}
+            className="relative w-10 h-10 rounded-full bg-primary-100 dark:bg-primary-300/40 border border-primary-200/60 dark:border-primary-300/40 grid place-items-center"
+            aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+          >
+            <div className={`transition-transform duration-500 ${darkMode ? 'rotate-180' : 'rotate-0'}`}>
+              {darkMode ? (
+                <FiSun className="text-primary-200 text-lg" />
+              ) : (
+                <FiMoon className="text-primary-400 text-lg" />
+              )}
+            </div>
+          </button>
+          <button
+            onClick={toggleMenu}
+            className="w-10 h-10 rounded-full text-primary-400 grid place-items-center hover:bg-primary-100"
+            aria-label="Toggle menu"
+          >
+            {isOpen ? <FiX className="text-xl" /> : <FiMenu className="text-xl" />}
+          </button>
+        </div>
       </nav>
 
       {/* Mobile Menu */}
-      <div className={`md:hidden absolute top-full left-0 w-full bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm shadow-lg transition-all duration-300 ease-in-out ${
-        isOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
-      }`}>
+      <div className={`md:hidden absolute top-full left-0 w-full bg-primary-50/95 dark:bg-primary-400/95 backdrop-blur-md shadow-lg transition-all duration-300 ease-in-out ${isOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
         <ul className="py-2">
-          <li><a href="#home" onClick={handleNavLinkClick} className="block px-6 py-3 text-gray-800 dark:text-gray-200 hover:bg-blue-100 dark:hover:bg-gray-800 transition-colors duration-300 border-b border-gray-200 dark:border-gray-700">Home</a></li>
-          <li><a href="#about" onClick={handleNavLinkClick} className="block px-6 py-3 text-gray-800 dark:text-gray-200 hover:bg-blue-100 dark:hover:bg-gray-800 transition-colors duration-300 border-b border-gray-200 dark:border-gray-700">About</a></li>
-          <li><a href="#skills" onClick={handleNavLinkClick} className="block px-6 py-3 text-gray-800 dark:text-gray-200 hover:bg-blue-100 dark:hover:bg-gray-800 transition-colors duration-300 border-b border-gray-200 dark:border-gray-700">Skills</a></li>
-          <li><a href="#services" onClick={handleNavLinkClick} className="block px-6 py-3 text-gray-800 dark:text-gray-200 hover:bg-blue-100 dark:hover:bg-gray-800 transition-colors duration-300 border-b border-gray-200 dark:border-gray-700">Services</a></li>
-          <li><a href="#portfolio" onClick={handleNavLinkClick} className="block px-6 py-3 text-gray-800 dark:text-gray-200 hover:bg-blue-100 dark:hover:bg-gray-800 transition-colors duration-300 border-b border-gray-200 dark:border-gray-700">Projects</a></li>
-          <li><a href="#contact" onClick={handleNavLinkClick} className="block px-6 py-3 text-gray-800 dark:text-gray-200 hover:bg-blue-100 dark:hover:bg-gray-800 transition-colors duration-300">Contact</a></li>
+          {navItems.map(item => (
+            <li key={item.id}>
+              <a
+                href={`#${item.id}`}
+                onClick={handleNavLinkClick}
+                className="block px-6 py-3 text-primary-400 dark:text-primary-50 hover:bg-primary-100/70 dark:hover:bg-primary-300/20 transition-colors border-b border-primary-100/70 dark:border-primary-300/30"
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
     </header>
