@@ -1,13 +1,185 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Tailwind components */
+@layer components {
+  .nav-link {
+    @apply text-gray-700 dark:text-gray-300 text-lg font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 ease-in-out;
+  }
+  .social-icon {
+    @apply text-3xl text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transform hover:scale-125 transition-all duration-300 ease-in-out;
+  }
+  .btn-primary {
+    @apply inline-block bg-blue-600 text-white font-semibold py-3 px-8 rounded-full shadow-md
+           hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition-all duration-300 ease-in-out;
+  }
+  .heading h2 {
+    @apply text-4xl font-bold mb-2 text-gray-900 dark:text-white;
+  }
+  .heading span {
+    @apply text-lg font-medium text-blue-600 dark:text-blue-400;
+  }
+  .info-box {
+    @apply flex items-center space-x-4 p-4 rounded-lg bg-gray-50 dark:bg-gray-800 shadow-md
+           transform hover:scale-105 transition-all duration-300 ease-in-out;
+  }
+  .info-icon {
+    @apply text-blue-600 dark:text-blue-400 text-3xl flex-shrink-0;
+  }
+  .input-field {
+    @apply w-full p-4 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white
+           focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 ease-in-out;
+  }
+  
+  /* Dark mode specific styles */
+  .dark-mode-toggle {
+    @apply relative p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 
+           transition-all duration-300 ease-in-out group;
+  }
+  
+  .card {
+    @apply bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl 
+           transition-all duration-300 ease-in-out border border-gray-200 dark:border-gray-700;
+  }
+  
+  .section {
+    @apply py-16 px-6 bg-white dark:bg-gray-900 transition-colors duration-700 ease-in-out;
+  }
+  
+  /* Skills specific styles */
+  .skill-card {
+    @apply relative p-6 rounded-2xl bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm 
+           border border-gray-200/50 dark:border-gray-700/50
+           transform transition-all duration-500 ease-out cursor-pointer
+           hover:scale-105 hover:shadow-xl hover:border-blue-300 dark:hover:border-blue-600;
+  }
+  
+  .skill-card:hover {
+    @apply shadow-2xl;
+  }
+  
+  .skill-icon-container {
+    @apply relative w-16 h-16 rounded-xl bg-gradient-to-br from-gray-100 to-gray-200 
+           dark:from-gray-700 dark:to-gray-800 
+           flex items-center justify-center transition-transform duration-300 ease-out;
+  }
+  
+  .skill-progress {
+    @apply w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden;
+  }
+  
+  .skill-progress-bar {
+    @apply h-full rounded-full transition-all duration-1000 ease-out;
+  }
+  
+  .category-badge {
+    @apply px-2 py-1 text-xs font-medium bg-blue-100 dark:bg-blue-900/30 
+           text-blue-800 dark:text-blue-300 rounded-full;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Keyframes for animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes zoomIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: none;
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(59, 130, 246, 0.5); }
+  50% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.8), 0 0 30px rgba(59, 130, 246, 0.6); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Apply animations */
+.animate-fadeIn { animation: fadeIn 0.8s ease-out forwards; }
+.animate-fadeInUp { animation: fadeInUp 0.8s ease-out forwards; }
+.animate-slideInLeft { animation: slideInLeft 0.8s ease-out forwards; }
+.animate-slideInRight { animation: slideInRight 0.8s ease-out forwards; }
+.animate-zoomIn { animation: zoomIn 0.8s ease-out forwards; }
+.animate-bounce { animation: bounce 1s infinite; }
+.animate-slideUp { animation: slideUp 0.6s ease-out forwards; }
+.animate-rotate { animation: rotate 2s linear infinite; }
+.animate-pulse { animation: pulse 2s ease-in-out infinite; }
+.animate-float { animation: float 3s ease-in-out infinite; }
+.animate-glow { animation: glow 2s ease-in-out infinite; }
+.animate-shimmer { 
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+.animate-bounce-slow { animation: bounce-slow 3s ease-in-out infinite; }
+
+/* Dark mode transition utilities */
+.dark-mode-transition {
+  @apply transition-all duration-500 ease-in-out;
+}
+
+.dark-mode-transition-fast {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+/* Ensure dark mode class is applied to html */
+html.dark {
+  /* Tailwind automatically handles dark classes based on this */
 }

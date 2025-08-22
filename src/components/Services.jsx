@@ -1,0 +1,45 @@
+import React from 'react';
+import { FiCode, FiServer, FiPenTool } from 'react-icons/fi';
+import { FaFigma } from 'react-icons/fa'; // Figma icon from Font Awesome
+
+const servicesData = [
+  { title: 'Web Development', icon: <FiCode className="service-icon" />, description: 'Crafting responsive and dynamic web applications.' },
+  { title: 'Backend Development', icon: <FiServer className="service-icon" />, description: 'Building robust and scalable server-side solutions.' },
+  { title: 'UI/UX Design', icon: <FiPenTool className="service-icon" />, description: 'Designing intuitive and engaging user interfaces.' },
+  { title: 'Figma Design', icon: <FaFigma className="service-icon" />, description: 'Creating stunning and functional designs with Figma.' },
+];
+
+const Services = () => {
+  return (
+    <section id="services" className="py-16 px-6 bg-white dark:bg-gray-900 transition-colors duration-700 ease-in-out">
+      <div className="container mx-auto">
+        <div className="heading text-center mb-12">
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-2 animate-fadeInUp">Services</h2>
+          <span className="text-lg text-blue-600 dark:text-blue-400 font-semibold animate-fadeInUp delay-100">What I Offer</span>
+        </div>
+
+        <div className="services-content grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {servicesData.map((service, index) => (
+            <div
+              key={index}
+              className="services-box p-8 rounded-xl shadow-lg bg-gray-50 dark:bg-gray-800 flex flex-col items-center text-center
+                         transform hover:scale-105 hover:shadow-2xl transition-all duration-300 ease-in-out animate-zoomIn"
+              style={{ animationDelay: `${index * 0.15}s` }}
+            >
+              <div className="text-blue-600 dark:text-blue-400 text-6xl mb-6 group-hover:rotate-12 transition-transform duration-500 ease-in-out">
+                {service.icon}
+              </div>
+              <h3 className="text-2xl font-semibold text-gray-800 dark:text-white mb-4">{service.title}</h3>
+              <p className="text-gray-600 dark:text-gray-400 mb-6">{service.description}</p>
+              <a href="#" className="text-blue-600 dark:text-blue-400 font-medium hover:underline hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-300">
+                Learn More
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Services;

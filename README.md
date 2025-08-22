@@ -1,70 +1,88 @@
-# Getting Started with Create React App
+# My Portfolio - Dark Mode Enabled
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, responsive portfolio website with full dark mode support built with React and Tailwind CSS.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+### 🌙 Dark Mode
+- **Automatic Detection**: Automatically detects system preference for dark/light mode
+- **Manual Toggle**: Users can manually switch between dark and light modes
+- **Persistent Preference**: Remembers user's choice across sessions
+- **Smooth Transitions**: Beautiful animations when switching between modes
+- **Multiple Toggle Points**: 
+  - Header navigation (desktop and mobile)
+  - Floating action button (bottom-right corner)
 
-### `npm start`
+### 🎨 Design Features
+- **Responsive Design**: Works perfectly on all device sizes
+- **Modern UI**: Clean, professional design with smooth animations
+- **Accessibility**: Proper ARIA labels and keyboard navigation
+- **Performance**: Optimized with React hooks and context
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Dark Mode Implementation
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### How it Works
+1. **Context Provider**: Uses React Context to manage dark mode state globally
+2. **Local Storage**: Saves user preference in browser storage
+3. **System Preference**: Automatically detects OS dark mode setting
+4. **Tailwind CSS**: Uses Tailwind's `dark:` prefix for styling
+5. **CSS Classes**: Applies `dark` class to HTML root element
 
-### `npm test`
+### Key Components
+- `DarkModeContext.jsx`: Manages dark mode state and logic
+- `DarkModeIndicator.jsx`: Floating toggle button with tooltip
+- `Header.jsx`: Navigation with integrated dark mode toggle
+- All sections: Pre-configured with dark mode styles
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Styling
+The app uses Tailwind CSS with custom dark mode classes:
+- `dark:bg-gray-950` for dark backgrounds
+- `dark:text-gray-100` for dark text
+- `dark:border-gray-700` for dark borders
+- Smooth transitions with `transition-all duration-500`
 
-### `npm run build`
+## Getting Started
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. **Install Dependencies**:
+   ```bash
+   npm install
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. **Start Development Server**:
+   ```bash
+   npm start
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. **Build for Production**:
+   ```bash
+   npm run build
+   ```
 
-### `npm run eject`
+## Customization
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Adding Dark Mode to New Components
+1. Import the context:
+   ```jsx
+   import { useDarkMode } from '../contexts/DarkModeContext';
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. Use dark mode classes:
+   ```jsx
+   <div className="bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100">
+     Content
+   </div>
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Tailwind Configuration
+The `tailwind.config.js` includes:
+- `darkMode: 'class'` for class-based dark mode
+- Custom color palette
+- Animation utilities
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Browser Support
+- Modern browsers with CSS Grid and Flexbox support
+- Local Storage for preference persistence
+- Media queries for system preference detection
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## License
+MIT License - feel free to use this code for your own projects!
