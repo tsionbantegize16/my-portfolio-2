@@ -5,54 +5,54 @@
 /* Custom Tailwind components */
 @layer components {
   .nav-link {
-    @apply text-gray-700 dark:text-gray-300 text-lg font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 ease-in-out;
+    @apply text-primary-400 dark:text-primary-100 text-lg font-medium hover:text-primary-200 dark:hover:text-primary-200 transition-colors duration-300 ease-in-out;
   }
   .social-icon {
-    @apply text-3xl text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transform hover:scale-125 transition-all duration-300 ease-in-out;
+    @apply text-3xl text-primary-300 dark:text-primary-100 hover:text-primary-200 dark:hover:text-primary-200 transform hover:scale-125 transition-all duration-300 ease-in-out;
   }
   .btn-primary {
-    @apply inline-block bg-blue-600 text-white font-semibold py-3 px-8 rounded-full shadow-md
-           hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition-all duration-300 ease-in-out;
+    @apply inline-block bg-primary-200 text-primary-50 font-semibold py-3 px-8 rounded-full shadow-md
+           hover:bg-primary-300 dark:bg-primary-200 dark:hover:bg-primary-300 transition-all duration-300 ease-in-out;
   }
   .heading h2 {
-    @apply text-4xl font-bold mb-2 text-gray-900 dark:text-white;
+    @apply text-4xl font-bold mb-2 text-primary-400 dark:text-primary-50;
   }
   .heading span {
-    @apply text-lg font-medium text-blue-600 dark:text-blue-400;
+    @apply text-lg font-medium text-primary-200 dark:text-primary-200;
   }
   .info-box {
-    @apply flex items-center space-x-4 p-4 rounded-lg bg-gray-50 dark:bg-gray-800 shadow-md
+    @apply flex items-center space-x-4 p-4 rounded-lg bg-primary-100 dark:bg-primary-400 shadow-md
            transform hover:scale-105 transition-all duration-300 ease-in-out;
   }
   .info-icon {
-    @apply text-blue-600 dark:text-blue-400 text-3xl flex-shrink-0;
+    @apply text-primary-200 dark:text-primary-200 text-3xl flex-shrink-0;
   }
   .input-field {
-    @apply w-full p-4 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white
-           focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 ease-in-out;
+    @apply w-full p-4 border border-primary-300 dark:border-primary-300 rounded-lg bg-primary-50 dark:bg-primary-400 text-primary-400 dark:text-primary-50
+           focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-transparent transition-all duration-300 ease-in-out;
   }
   
   /* Dark mode specific styles */
   .dark-mode-toggle {
-    @apply relative p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 
+    @apply relative p-2 rounded-full bg-primary-100 dark:bg-primary-400 hover:bg-primary-200 dark:hover:bg-primary-300 
            transition-all duration-300 ease-in-out group;
   }
   
   .card {
-    @apply bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl 
-           transition-all duration-300 ease-in-out border border-gray-200 dark:border-gray-700;
+    @apply bg-primary-50 dark:bg-primary-400 rounded-xl shadow-lg hover:shadow-xl 
+           transition-all duration-300 ease-in-out border border-primary-200 dark:border-primary-300;
   }
   
   .section {
-    @apply py-16 px-6 bg-white dark:bg-gray-900 transition-colors duration-700 ease-in-out;
+    @apply py-16 px-6 bg-primary-50 dark:bg-primary-400 transition-colors duration-700 ease-in-out;
   }
   
   /* Skills specific styles */
   .skill-card {
-    @apply relative p-6 rounded-2xl bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm 
-           border border-gray-200/50 dark:border-gray-700/50
+    @apply relative p-6 rounded-2xl bg-primary-50/80 dark:bg-primary-400/80 backdrop-blur-sm 
+           border border-primary-200/50 dark:border-primary-300/50
            transform transition-all duration-500 ease-out cursor-pointer
-           hover:scale-105 hover:shadow-xl hover:border-blue-300 dark:hover:border-blue-600;
+           hover:scale-105 hover:shadow-xl hover:border-primary-200 dark:hover:border-primary-200;
   }
   
   .skill-card:hover {
@@ -60,13 +60,13 @@
   }
   
   .skill-icon-container {
-    @apply relative w-16 h-16 rounded-xl bg-gradient-to-br from-gray-100 to-gray-200 
-           dark:from-gray-700 dark:to-gray-800 
+    @apply relative w-16 h-16 rounded-xl bg-gradient-to-br from-primary-100 to-primary-200 
+           dark:from-primary-400 dark:to-primary-300 
            flex items-center justify-center transition-transform duration-300 ease-out;
   }
   
   .skill-progress {
-    @apply w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden;
+    @apply w-full bg-primary-200 dark:bg-primary-300 rounded-full h-2 overflow-hidden;
   }
   
   .skill-progress-bar {
@@ -74,8 +74,8 @@
   }
   
   .category-badge {
-    @apply px-2 py-1 text-xs font-medium bg-blue-100 dark:bg-blue-900/30 
-           text-blue-800 dark:text-blue-300 rounded-full;
+    @apply px-2 py-1 text-xs font-medium bg-primary-100 dark:bg-primary-400/30 
+           text-primary-300 dark:text-primary-100 rounded-full;
   }
 }
 

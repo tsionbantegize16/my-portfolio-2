@@ -11,11 +11,11 @@ const projectsData = [
 
 const Portfolio = () => {
   return (
-    <section id="portfolio" className="py-16 px-6 bg-gray-100 dark:bg-gray-950 transition-colors duration-700 ease-in-out">
+    <section id="portfolio" className="py-16 px-6 bg-primary-50 dark:bg-primary-400 transition-colors duration-700 ease-in-out">
       <div className="container mx-auto">
         <div className="heading text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-2 animate-fadeInUp">Portfolio</h2>
-          <span className="text-lg text-blue-600 dark:text-blue-400 font-semibold animate-fadeInUp delay-100">My Recent Work</span>
+          <h2 className="text-4xl font-bold text-primary-400 dark:text-primary-50 mb-2 animate-fadeInUp">Portfolio</h2>
+          <span className="text-lg text-primary-200 dark:text-primary-200 font-semibold animate-fadeInUp delay-100">My Recent Work</span>
         </div>
 
         <div className="portfolio-content grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -34,8 +34,8 @@ const Portfolio = () => {
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white text-xl font-semibold bg-blue-600 px-6 py-3 rounded-lg
-                             hover:bg-blue-700 transform hover:scale-105 transition-all duration-300 ease-in-out"
+                  className="text-primary-50 text-xl font-semibold bg-primary-200 px-6 py-3 rounded-lg
+                             hover:bg-primary-300 transform hover:scale-105 transition-all duration-300 ease-in-out"
                 >
                   View Project
                 </a>

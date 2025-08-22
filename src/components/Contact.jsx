@@ -22,14 +22,14 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-16 px-6 bg-white dark:bg-gray-900 transition-colors duration-700 ease-in-out">
+    <section id="contact" className="py-16 px-6 bg-primary-50 dark:bg-primary-400 transition-colors duration-700 ease-in-out">
       <div className="container mx-auto">
         <div className="heading text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-2 animate-fadeInUp">Contact</h2>
-          <span className="text-lg text-blue-600 dark:text-blue-400 font-semibold animate-fadeInUp delay-100">Connect With Me</span>
+          <h2 className="text-4xl font-bold text-primary-400 dark:text-primary-50 mb-2 animate-fadeInUp">Contact</h2>
+          <span className="text-lg text-primary-200 dark:text-primary-200 font-semibold animate-fadeInUp delay-100">Connect With Me</span>
         </div>
 
-        <div className="contact-form max-w-2xl mx-auto p-8 rounded-xl shadow-lg bg-gray-50 dark:bg-gray-800 animate-slideInUp">
+        <div className="contact-form max-w-2xl mx-auto p-8 rounded-xl shadow-lg bg-primary-100 dark:bg-primary-400 animate-slideInUp">
           <form onSubmit={handleSubmit} className="space-y-6">
             <input
               type="text"
@@ -61,7 +61,7 @@ const Contact = () => {
             ></textarea>
             <button
               type="submit"
-              className="btn-primary w-full transform hover:scale-102 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+              className="btn-primary w-full transform hover:scale-102 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-primary-200 focus:ring-opacity-50"
             >
               Send Message
             </button>

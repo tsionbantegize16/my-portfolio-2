@@ -13,7 +13,7 @@ import DarkModeIndicator from './components/DarkModeIndicator';
 function App() {
   return (
     <DarkModeProvider>
-      <div className="font-sans min-h-screen transition-all duration-500 ease-in-out bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100">
+      <div className="font-sans min-h-screen transition-all duration-500 ease-in-out bg-primary-50 dark:bg-primary-400 text-primary-400 dark:text-primary-50">
         <Header />
         <main className="pt-20"> {/* Add padding-top to account for fixed header */}
           <Home />

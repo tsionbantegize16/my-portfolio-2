@@ -34,10 +34,10 @@ const Header = () => {
   }
 
   return (
-    <header className="fixed w-full top-0 left-0 z-50 bg-white/95 dark:bg-gray-950/95 backdrop-blur-sm shadow-lg transition-all duration-300 ease-in-out">
+    <header className="fixed w-full top-0 left-0 z-50 bg-primary-50/95 dark:bg-primary-400/95 backdrop-blur-sm shadow-lg transition-all duration-300 ease-in-out">
       <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo */}
-        <a href="#home" className="text-2xl font-bold text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-300">
+        <a href="#home" className="text-2xl font-bold text-primary-200 dark:text-primary-200 hover:text-primary-300 dark:hover:text-primary-100 transition-colors duration-300">
           Tsi
         </a>
 
@@ -45,22 +45,22 @@ const Header = () => {
         <div className="md:hidden flex items-center space-x-4">
           <button 
             onClick={toggleDarkMode} 
-            className="relative p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300 ease-in-out group"
+            className="relative p-2 rounded-full bg-primary-100 dark:bg-primary-400 hover:bg-primary-200 dark:hover:bg-primary-300 transition-all duration-300 ease-in-out group"
             aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
           >
             <div className={`absolute inset-0 rounded-full transition-transform duration-500 ease-in-out ${
               darkMode ? 'rotate-180' : 'rotate-0'
             }`}>
               {darkMode ? (
-                <FiSun className="text-yellow-500 text-xl group-hover:scale-110 transition-transform duration-300" />
+                <FiSun className="text-primary-200 text-xl group-hover:scale-110 transition-transform duration-300" />
               ) : (
-                <FiMoon className="text-gray-700 text-xl group-hover:scale-110 transition-transform duration-300" />
+                <FiMoon className="text-primary-400 text-xl group-hover:scale-110 transition-transform duration-300" />
               )}
             </div>
           </button>
           <button 
             onClick={toggleMenu} 
-            className="text-gray-700 dark:text-gray-300 focus:outline-none text-2xl p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300"
+            className="text-primary-400 dark:text-primary-100 focus:outline-none text-2xl p-2 rounded-full hover:bg-primary-100 dark:hover:bg-primary-400 transition-colors duration-300"
             aria-label="Toggle menu"
           >
             {isOpen ? <FiX /> : <FiMenu />}
@@ -78,16 +78,16 @@ const Header = () => {
           <li>
             <button 
               onClick={toggleDarkMode} 
-              className="relative p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300 ease-in-out group"
+              className="relative p-2 rounded-full bg-primary-100 dark:bg-primary-400 hover:bg-primary-200 dark:hover:bg-primary-300 transition-all duration-300 ease-in-out group"
               aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
             >
               <div className={`absolute inset-0 rounded-full transition-transform duration-500 ease-in-out ${
                 darkMode ? 'rotate-180' : 'rotate-0'
               }`}>
                 {darkMode ? (
-                  <FiSun className="text-yellow-500 text-xl group-hover:scale-110 transition-transform duration-300" />
+                  <FiSun className="text-primary-200 text-xl group-hover:scale-110 transition-transform duration-300" />
                 ) : (
-                  <FiMoon className="text-gray-700 text-xl group-hover:scale-110 transition-transform duration-300" />
+                  <FiMoon className="text-primary-400 text-xl group-hover:scale-110 transition-transform duration-300" />
                 )}
               </div>
             </button>
