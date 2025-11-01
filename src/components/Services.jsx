@@ -1,12 +1,33 @@
 import React from 'react';
-import { FiCode, FiServer, FiPenTool } from 'react-icons/fi';
+import { FiCode, FiDatabase, FiLayers, FiPenTool, FiServer } from 'react-icons/fi';
 import { FaFigma } from 'react-icons/fa'; // Figma icon from Font Awesome
 
 const servicesData = [
-  { title: 'Web Development', icon: <FiCode className="text-2xl" />, description: 'Responsive, fast, and accessible websites built with modern stacks.' },
-  { title: 'Backend Development', icon: <FiServer className="text-2xl" />, description: 'Secure, scalable APIs and services with robust architecture.' },
-  { title: 'UI/UX Design', icon: <FiPenTool className="text-2xl" />, description: 'Human-centered interfaces that are beautiful and easy to use.' },
-  { title: 'Figma Design', icon: <FaFigma className="text-2xl" />, description: 'From wireframes to polished prototypes that communicate clearly.' },
+  {
+    title: 'Front-End Development',
+    icon: <FiCode className="text-2xl" />,
+    description: 'Fast, responsive, and maintainable web interfaces built with Vue.js, Nuxt, React, and Next.js using clean architecture and reusable components powered by Tailwind CSS.',
+  },
+  {
+    title: 'UI/UX Design',
+    icon: <FiPenTool className="text-2xl" />,
+    description: 'Intuitive, visually balanced interfaces crafted in Figma and Canva where accessibility, clarity, and aesthetics work together for effortless experiences.',
+  },
+  {
+    title: 'API Integration & Data Handling',
+    icon: <FiDatabase className="text-2xl" />,
+    description: 'GraphQL and REST integrations that bridge interfaces with real data, leveraging PostgreSQL, Hasura, and Strapi for secure, performant content management.',
+  },
+  {
+    title: 'Back-End Support',
+    icon: <FiServer className="text-2xl" />,
+    description: 'Lightweight back-end services using Node.js, Strapi, Spring, and Docker to deliver deployable solutions that pair seamlessly with modern front-end frameworks.',
+  },
+  {
+    title: 'Product Prototyping',
+    icon: <FiLayers className="text-2xl" />,
+    description: 'Concept-to-prototype workflows that translate ideas into interactive mockups and responsive UI components for rapid validation.',
+  },
 ];
 
 const Services = () => {

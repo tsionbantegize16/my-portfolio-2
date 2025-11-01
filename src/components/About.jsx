@@ -1,5 +1,5 @@
 import React from 'react';
-import { FiUser, FiPhone, FiMail, FiAward, FiBriefcase, FiCheckCircle } from 'react-icons/fi';
+import { FiAward, FiBriefcase, FiCheckCircle, FiCpu, FiLayers, FiMonitor, FiTrendingUp } from 'react-icons/fi';
 
 const About = () => {
   return (
@@ -18,73 +18,39 @@ const About = () => {
           </span>
         </div>
 
-        <div className="about-container grid grid-cols-1 md:grid-cols-2 items-center gap-6 md:gap-8">
+        <div className="about-container grid grid-cols-1 md:grid-cols-2 items-start gap-8 lg:gap-12">
           {/* Image */}
-          <div className="about-img flex justify-center md:justify-start animate-slideInLeft">
-            <div className="relative group w-72 md:w-96 aspect-[4/5]">
+          <div className="about-img flex justify-center md:justify-start lg:justify-center animate-slideInLeft">
+            <div className="relative group w-64 md:w-80 lg:w-[22rem] aspect-[4/5]">
               <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-br from-primary-200/70 to-primary-300/50 blur opacity-70 group-hover:opacity-90 transition"></div>
               <div className="relative h-full w-full rounded-2xl overflow-hidden border border-primary-200/70 dark:border-primary-300/30 bg-white/80 dark:bg-primary-300/10 shadow-xl transition-all duration-300 ease-out group-hover:shadow-2xl group-hover:-translate-y-1">
-                <img src="/photo_2.jpg" alt="Tsion Bantegize" className="h-full w-full object-cover transition-transform duration-300 ease-out group-hover:scale-[1.03]" />
-                <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-primary-100/90 dark:bg-primary-300/30 border border-primary-200/70 dark:border-primary-300/30 text-[10px] font-semibold text-primary-400 dark:text-primary-50 shadow-sm">
-                  Full‑Stack Developer
-                </div>
+                <img src="/tsion.jpg" alt="Tsion Bantegize" className="h-full w-full object-cover transition-transform duration-300 ease-out group-hover:scale-[1.03]" />
               </div>
             </div>
           </div>
 
           {/* Text */}
-          <div className="about-text text-center md:text-left animate-slideInRight">
-            <p className="text-base md:text-lg leading-relaxed text-primary-500 dark:text-white/90 mb-6">
-              I am currently studying Software Engineering at Bahirdar University, where I’ve built a strong foundation in computer science, programming, algorithms, and software development. I actively seek practical experience through independent and collaborative projects, refining my skills in both software development and UX/UI design. My goal is to create intuitive, impactful digital experiences.
+          <div className="about-text text-center md:text-left animate-slideInRight lg:pl-4">
+            <span className="inline-flex items-center justify-center px-3 py-1 rounded-full bg-primary-100/80 dark:bg-primary-300/20 border border-primary-200/60 dark:border-primary-300/30 text-[11px] font-semibold uppercase tracking-[0.25em] text-primary-300 dark:text-primary-200">
+              Tsion Bantegize — Front-End Developer
+            </span>
+
+            <p className="mt-5 text-base md:text-lg leading-relaxed text-primary-500 dark:text-white/90">
+              I’m a dedicated front-end developer who loves turning complex ideas into simple, engaging digital experiences. I focus on crafting clean, responsive, and accessible interfaces that blend thoughtful design with solid functionality.
+            </p>
+            <p className="mt-4 text-base md:text-lg leading-relaxed text-primary-500 dark:text-white/90">
+              Beyond development, I enjoy designing user-centred interfaces that connect visuals with usability—pairing creativity and logic to deliver meaningful products. My curiosity pulls me toward fintech, AI, and edtech, where careful design can make technology feel more human.
             </p>
 
-            {/* Highlights */}
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
-              <li className="flex items-start gap-2 text-primary-500 dark:text-primary-50">
-                <FiCheckCircle className="mt-1 shrink-0" />
-                <span>Clean, maintainable, and scalable code</span>
-              </li>
-              <li className="flex items-start gap-2 text-primary-500 dark:text-primary-50">
-                <FiCheckCircle className="mt-1 shrink-0" />
-                <span>Beautiful UI with accessible UX</span>
-              </li>
-              <li className="flex items-start gap-2 text-primary-500 dark:text-primary-50">
-                <FiCheckCircle className="mt-1 shrink-0" />
-                <span>Modern React, Tailwind CSS, and best practices</span>
-              </li>
-              <li className="flex items-start gap-2 text-primary-500 dark:text-primary-50">
-                <FiCheckCircle className="mt-1 shrink-0" />
-                <span>Always learning and iterating</span>
-              </li>
-            </ul>
-
-            {/* Info cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <div className="group rounded-xl border border-primary-200/60 dark:border-primary-300/20 bg-white/70 dark:bg-primary-300/10 backdrop-blur-sm p-4 text-primary-500 dark:text-primary-50 transition-all hover:-translate-y-1 hover:shadow-lg">
-                <FiUser className="text-lg mb-1" />
-                <div className="text-xs opacity-80">Name</div>
-                <div className="font-semibold">Tsion Bantegize</div>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 mt-8">
+              <div className="rounded-2xl border border-primary-200/60 dark:border-primary-300/20 bg-white/70 dark:bg-primary-300/10 backdrop-blur-sm p-5 text-left">
+                <h3 className="text-sm font-semibold uppercase tracking-[0.25em] text-primary-300 dark:text-primary-200 mb-2">How I Work</h3>
+                <p className="text-sm text-primary-500 dark:text-primary-50">Design-led discovery, structured code, and smooth collaboration. I aim for scalable, maintainable solutions built with clarity and purpose.</p>
               </div>
-              <div className="group rounded-xl border border-primary-200/60 dark:border-primary-300/20 bg-white/70 dark:bg-primary-300/10 backdrop-blur-sm p-4 text-primary-500 dark:text-primary-50 transition-all hover:-translate-y-1 hover:shadow-lg">
-                <FiPhone className="text-lg mb-1" />
-                <div className="text-xs opacity-80">Phone</div>
-                <div className="font-semibold">+251 995 220 266</div>
+              <div className="rounded-2xl border border-primary-200/60 dark:border-primary-300/20 bg-white/70 dark:bg-primary-300/10 backdrop-blur-sm p-5 text-left">
+                <h3 className="text-sm font-semibold uppercase tracking-[0.25em] text-primary-300 dark:text-primary-200 mb-2">What Excites Me</h3>
+                <p className="text-sm text-primary-500 dark:text-primary-50">Creating secure and intuitive fintech dashboards, humanising AI tools, and developing high-performance front ends that empower users.</p>
               </div>
-              <div className="group rounded-xl border border-primary-200/60 dark:border-primary-300/20 bg-white/70 dark:bg-primary-300/10 backdrop-blur-sm p-4 text-primary-500 dark:text-primary-50 transition-all hover:-translate-y-1 hover:shadow-lg">
-                <FiMail className="text-lg mb-1" />
-                <div className="text-xs opacity-80">Email</div>
-                <div className="font-semibold break-all">tsionbantegize@gmail.com</div>
-              </div>
-            </div>
-
-            {/* Badges / extras */}
-            <div className="mt-6 flex flex-wrap items-center gap-3 text-primary-500 dark:text-primary-50">
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-100/70 dark:bg-primary-300/20 border border-primary-200/60 dark:border-primary-300/30 text-xs">
-                <FiBriefcase /> 2+ Years building projects
-              </span>
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-100/70 dark:bg-primary-300/20 border border-primary-200/60 dark:border-primary-300/30 text-xs">
-                <FiAward /> Focused on quality & performance
-              </span>
             </div>
 
             {/* CTAs */}

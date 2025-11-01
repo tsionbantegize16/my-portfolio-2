@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FiMail, FiPhone, FiUser } from 'react-icons/fi';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -60,6 +61,23 @@ const Contact = () => {
               <li>• Typical response time: under 48 hours</li>
               <li>• Location: Bahir Dar, Ethiopia</li>
             </ul>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+              <div className="group rounded-xl border border-primary-200/60 dark:border-primary-300/20 bg-white/70 dark:bg-primary-300/10 backdrop-blur-sm p-4 text-primary-500 dark:text-primary-50 transition-all hover:-translate-y-1 hover:shadow-lg">
+                <FiUser className="text-lg mb-1" />
+                <div className="text-xs opacity-80">Name</div>
+                <div className="font-semibold">Tsion Bantegize</div>
+              </div>
+              <div className="group rounded-xl border border-primary-200/60 dark:border-primary-300/20 bg-white/70 dark:bg-primary-300/10 backdrop-blur-sm p-4 text-primary-500 dark:text-primary-50 transition-all hover:-translate-y-1 hover:shadow-lg">
+                <FiPhone className="text-lg mb-1" />
+                <div className="text-xs opacity-80">Phone</div>
+                <div className="font-semibold">+251 995 220 266</div>
+              </div>
+              <div className="group rounded-xl border border-primary-200/60 dark:border-primary-300/20 bg-white/70 dark:bg-primary-300/10 backdrop-blur-sm p-4 text-primary-500 dark:text-primary-50 transition-all hover:-translate-y-1 hover:shadow-lg">
+                <FiMail className="text-lg mb-1" />
+                <div className="text-xs opacity-80">Email</div>
+                <div className="font-semibold break-all">tsionbantegize@gmail.com</div>
+              </div>
+            </div>
           </div>
 
           {/* Right: Form */}

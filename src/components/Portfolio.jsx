@@ -11,10 +11,10 @@ const projectsData = [
 
 const Portfolio = () => {
   return (
-    <section id="portfolio" className="py-16 px-6 bg-primary-50 dark:bg-primary-400 transition-colors duration-700 ease-in-out">
+    <section id="projects" className="py-16 px-6 bg-primary-50 dark:bg-primary-400 transition-colors duration-700 ease-in-out">
       <div className="container mx-auto">
         <div className="heading text-center mb-12">
-          <h2 className="text-4xl font-bold text-primary-400 dark:text-primary-50 mb-2 animate-fadeInUp">Portfolio</h2>
+          <h2 className="text-4xl font-bold text-primary-400 dark:text-primary-50 mb-2 animate-fadeInUp">Projects</h2>
           <span className="text-lg text-primary-200 dark:text-primary-200 font-semibold animate-fadeInUp delay-100">My Recent Work</span>
         </div>
 

@@ -7,7 +7,7 @@ const navItems = [
   { id: 'about', label: 'About' },
   { id: 'skills', label: 'Skills' },
   { id: 'services', label: 'Services' },
-  { id: 'portfolio', label: 'Projects' },
+  { id: 'projects', label: 'Projects' },
   { id: 'contact', label: 'Contact' },
 ];
 
@@ -45,17 +45,23 @@ const Header = () => {
     return (
       <header className="fixed w-full top-0 left-0 z-50 bg-primary-50/95 dark:bg-primary-400/95 shadow-md transition-all duration-300 ease-in-out">
         <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
-          <a href="#home" className="text-2xl font-bold text-primary-200">Tsi</a>
+          <a href="#home" className="group inline-flex flex-col leading-tight">
+            <span className="text-lg font-semibold tracking-tight text-primary-400 dark:text-primary-50">Tsion Bantegize</span>
+            <span className="text-[10px] uppercase tracking-[0.2em] text-primary-300 dark:text-primary-200">Front-End Developer</span>
+          </a>
         </nav>
       </header>
     );
   }
 
   return (
-    <header className="fixed w-full top-0 left-0 z-50 bg-primary-50/80 dark:bg-primary-400/80 backdrop-blur-xl shadow-lg">
+    <header className="fixed w-full top-0 left-0 z-50 bg-primary-50/85 dark:bg-primary-400/85 backdrop-blur-xl shadow-lg">
       <nav className="container mx-auto px-6 py-3 flex justify-between items-center">
         {/* Brand */}
-        <a href="#home" className="text-2xl tracking-tight font-extrabold text-primary-200 hover:text-primary-300 transition-colors">Tsi</a>
+        <a href="#home" className="group inline-flex flex-col leading-tight">
+          <span className="text-lg md:text-xl font-semibold tracking-tight text-primary-400 dark:text-primary-50 group-hover:text-primary-300 transition-colors">Tsion Bantegize</span>
+          <span className="text-[10px] md:text-[11px] uppercase tracking-[0.25em] text-primary-300 dark:text-primary-200">Front-End Developer</span>
+        </a>
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-2">

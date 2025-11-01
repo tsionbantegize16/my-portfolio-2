@@ -1,22 +1,50 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { FiCode, FiZap, FiTrendingUp, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+import { FiChevronLeft, FiChevronRight, FiCode, FiPenTool, FiTrendingUp, FiZap } from 'react-icons/fi';
 
 const skillsData = [
   { name: 'Vue.js', category: 'Frontend', level: 90, color: '#4FC08D' },
   { name: 'Nuxt.js', category: 'Frontend', level: 85, color: '#00DC82' },
   { name: 'React', category: 'Frontend', level: 88, color: '#61DAFB' },
+  { name: 'Next.js', category: 'Frontend', level: 84, color: '#000000' },
   { name: 'Flutter', category: 'Mobile', level: 82, color: '#02569B' },
   { name: 'TypeScript', category: 'Language', level: 85, color: '#3178C6' },
   { name: 'JavaScript', category: 'Language', level: 92, color: '#F7DF1E' },
   { name: 'GraphQL', category: 'Backend', level: 78, color: '#E10098' },
   { name: 'Tailwind CSS', category: 'Styling', level: 90, color: '#06B6D4' },
   { name: 'Figma', category: 'Design', level: 85, color: '#F24E1E' },
+  { name: 'Canva', category: 'Design', level: 80, color: '#00C4CC' },
   { name: 'Git', category: 'Version Control', level: 88, color: '#F05032' },
   { name: 'GitHub', category: 'Version Control', level: 90, color: '#181717' },
   { name: 'Postman', category: 'API Testing', level: 85, color: '#FF6C37' },
   { name: 'PostgreSQL', category: 'Database', level: 80, color: '#336791' },
   { name: 'Node.js', category: 'Backend', level: 85, color: '#339933' },
+  { name: 'Strapi', category: 'Backend', level: 75, color: '#2F2E8B' },
+  { name: 'Spring', category: 'Backend', level: 70, color: '#6DB33F' },
+  { name: 'Docker', category: 'DevOps', level: 70, color: '#2496ED' },
   { name: 'VS Code', category: 'Tools', level: 95, color: '#007ACC' },
+];
+
+const skillHighlights = [
+  {
+    title: 'Clean, Maintainable Builds',
+    description: 'Clean, maintainable, and scalable interfaces that stay reliable in production.',
+    icon: FiZap,
+  },
+  {
+    title: 'Accessible Interface Design',
+    description: 'Beautiful UI with accessible UX patterns and thoughtful micro-interactions.',
+    icon: FiPenTool,
+  },
+  {
+    title: 'Modern React + Tailwind',
+    description: 'Modern React, Tailwind CSS, and component-driven best practices.',
+    icon: FiCode,
+  },
+  {
+    title: 'Always Learning & Iterating',
+    description: 'Continuous experimentation to refine performance, security, and usability.',
+    icon: FiTrendingUp,
+  },
 ];
 
 const Skills = () => {
@@ -26,7 +54,7 @@ const Skills = () => {
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [visibleCount, setVisibleCount] = useState(1);
   const carouselRef = useRef(null);
-  const autoPlayRef = useRef(null);
+  const animationFrameRef = useRef(null);
   const touchStartXRef = useRef(null);
 
   // Set visible count based on viewport
@@ -43,16 +71,26 @@ const Skills = () => {
     return () => window.removeEventListener('resize', updateVisible);
   }, []);
 
-  // Auto-play functionality (per-card)
+  // Auto-scroll functionality for smooth, continuous movement
   useEffect(() => {
     const maxIndex = Math.max(0, skillsData.length - visibleCount);
+    const step = () => {
+      setCurrentIndex((prev) => {
+        if (maxIndex === 0) return 0;
+        const next = prev + 0.01;
+        return next >= maxIndex ? 0 : next;
+      });
+      animationFrameRef.current = requestAnimationFrame(step);
+    };
+
     if (isAutoPlaying) {
-      autoPlayRef.current = setInterval(() => {
-        setCurrentIndex((prev) => (prev + 1) % (maxIndex + 1));
-      }, 3500);
+      animationFrameRef.current = requestAnimationFrame(step);
     }
+
     return () => {
-      if (autoPlayRef.current) clearInterval(autoPlayRef.current);
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
     };
   }, [isAutoPlaying, visibleCount]);
 
@@ -89,31 +127,44 @@ const Skills = () => {
       'Vue.js': 'vue',
       'Nuxt.js': 'nuxtjs',
       'React': 'react',
+      'Next.js': 'nextjs',
       'Flutter': 'flutter',
       'TypeScript': 'ts',
       'JavaScript': 'js',
       'GraphQL': 'graphql',
       'Tailwind CSS': 'tailwind',
       'Figma': 'figma',
+      'Canva': 'canva',
       'Git': 'git',
       'GitHub': 'github',
       'Postman': 'postman',
       'PostgreSQL': 'postgres',
       'Node.js': 'nodejs',
+      'Strapi': 'strapi',
+      'Spring': 'spring',
+      'Docker': 'docker',
       'VS Code': 'vscode',
     };
     return skillMap[skillName] || 'code';
   };
 
   // Navigation
+  const maxIndex = Math.max(0, skillsData.length - visibleCount);
+
   const nextSlide = () => {
-    const maxIndex = Math.max(0, skillsData.length - visibleCount);
-    setCurrentIndex((prev) => (prev + 1) % (maxIndex + 1));
+    if (maxIndex === 0) return;
+    setCurrentIndex((prev) => {
+      const next = Math.floor(prev) + 1;
+      return next > maxIndex ? 0 : next;
+    });
   };
 
   const prevSlide = () => {
-    const maxIndex = Math.max(0, skillsData.length - visibleCount);
-    setCurrentIndex((prev) => (prev - 1 + (maxIndex + 1)) % (maxIndex + 1));
+    if (maxIndex === 0) return;
+    setCurrentIndex((prev) => {
+      const next = Math.ceil(prev) - 1;
+      return next < 0 ? maxIndex : next;
+    });
   };
 
   const goToIndex = (index) => setCurrentIndex(index);
@@ -132,7 +183,7 @@ const Skills = () => {
 
       <div className="container mx-auto relative z-10">
         {/* Header Section */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-primary-300 to-primary-400 rounded-full mb-6 animate-bounce-slow">
             <FiCode className="text-white text-2xl" />
           </div>
@@ -142,6 +193,22 @@ const Skills = () => {
           <p className="text-xl text-primary-400/80 dark:text-primary-50/80 max-w-2xl mx-auto animate-fadeInUp" style={{ animationDelay: '0.2s' }}>
             A comprehensive collection of technologies and tools I use to bring ideas to life
           </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mb-16">
+          {skillHighlights.map(({ title, description, icon: Icon }, index) => (
+            <div
+              key={title}
+              className="rounded-2xl bg-white/70 dark:bg-primary-300/10 backdrop-blur-sm border border-primary-200/50 dark:border-primary-300/20 p-6 text-left shadow-sm hover:shadow-lg transition-transform duration-300 hover:-translate-y-1 animate-fadeInUp"
+              style={{ animationDelay: `${index * 0.05}s` }}
+            >
+              <div className="inline-flex items-center justify-center w-12 h-12 mb-4 rounded-full bg-gradient-to-br from-primary-200 to-primary-300 text-primary-700 dark:text-primary-100">
+                <Icon className="text-xl" />
+              </div>
+              <h3 className="text-lg font-semibold text-primary-500 dark:text-primary-50 mb-2">{title}</h3>
+              <p className="text-sm text-primary-500/85 dark:text-primary-50/80">{description}</p>
+            </div>
+          ))}
         </div>
 
         {/* Skills Carousel - per card */}
@@ -270,7 +337,7 @@ const Skills = () => {
                 key={index}
                 onClick={() => goToIndex(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ease-in-out ${
-                  currentIndex === index
+                  Math.round(currentIndex) === index
                     ? 'bg-primary-500 dark:bg-primary-200 scale-125'
                     : 'bg-primary-200 dark:bg-primary-300/30 hover:bg-primary-300 dark:hover:bg-primary-300/50'
                 }`}

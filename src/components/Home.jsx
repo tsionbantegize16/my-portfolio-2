@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { FaFacebookF, FaGitlab, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
+import { FaFacebookF, FaGitlab, FaGithub, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 
 const Home = () => {
   const [stats, setStats] = useState({ projects: 0, stack: 0, clients: 0 });
@@ -36,14 +36,14 @@ const Home = () => {
     return () => observer.disconnect();
   }, []);
   return (
-    <section id="home" className="relative min-h-screen flex items-center pt-12 pb-6 px-5 overflow-hidden bg-gradient-to-br from-primary-100 to-primary-200 dark:from-primary-400 dark:to-primary-400 transition-all duration-700 ease-in-out">
+    <section id="home" className="relative min-h-[92vh] flex items-center pt-6 md:pt-10 pb-10 md:pb-12 px-5 overflow-hidden bg-gradient-to-br from-primary-100 to-primary-200 dark:from-primary-400 dark:to-primary-400 transition-all duration-700 ease-in-out">
       {/* Decorative background blobs */}
       <div className="pointer-events-none absolute -top-24 -right-24 w-96 h-96 rounded-full bg-primary-200/30 dark:bg-primary-300/20 blur-3xl animate-pulse"></div>
       <div className="pointer-events-none absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-primary-100/70 dark:bg-primary-300/10 blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
 
-      <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 items-center relative z-10">
+      <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-y-8 md:gap-y-10 lg:gap-y-0 lg:gap-x-14 items-center relative z-10">
         {/* Right: Text (reversed) */}
-        <div className="order-2 lg:order-2 text-center lg:text-left lg:ml-8 animate-slideInRight">
+        <div className="order-2 lg:order-2 text-center lg:text-left lg:ml-8 lg:max-w-xl animate-slideInRight">
           <div className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-primary-100/70 dark:bg-primary-300/20 border border-primary-200/60 dark:border-primary-300/30 text-[10px] font-medium text-primary-400 dark:text-primary-50 mb-1.5">
             <span className="w-2 h-2 rounded-full bg-primary-300 animate-pulse"></span>
             Available for freelance projects
@@ -53,7 +53,7 @@ const Home = () => {
             Building delightful digital experiences
           </h1>
           <p className="mt-3 text-base md:text-lg text-white/90 max-w-2xl mx-auto lg:mx-0">
-            Full‑stack developer focused on speed, accessibility, and polished UI. I turn ideas into reliable products with modern React and thoughtful design.
+            Front-end developer focused on speed, accessibility, and polished UI. I turn ideas into reliable products with modern React and thoughtful design.
           </p>
 
           {/* CTA buttons */}
@@ -68,16 +68,19 @@ const Home = () => {
 
           {/* Socials */}
           <div className="mt-8 flex items-center justify-center lg:justify-start gap-6">
-            <a href="https://www.facebook.com/profile.php?id=61551880407217&mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" className="social-icon hover:-translate-y-0.5 hover:text-primary-500 transition-transform">
+            <a href="https://www.facebook.com/profile.php?id=61551880407217&mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" className="social-icon hover:-translate-y-0.5 transition-transform" aria-label="Facebook">
               <FaFacebookF />
             </a>
-            <a href="https://gitlab.com/tsionbantegize/" target="_blank" rel="noopener noreferrer" className="social-icon hover:-translate-y-0.5 hover:text-primary-500 transition-transform">
+            <a href="https://gitlab.com/tsionbantegize/" target="_blank" rel="noopener noreferrer" className="social-icon hover:-translate-y-0.5 transition-transform" aria-label="GitLab">
               <FaGitlab />
             </a>
-            <a href="https://www.instagram.com/tsi_bantegize?igsh=MTdjZnJpMmtwd293Ng==" target="_blank" rel="noopener noreferrer" className="social-icon hover:-translate-y-0.5 hover:text-primary-500 transition-transform">
+            <a href="https://github.com/tsionbantegize" target="_blank" rel="noopener noreferrer" className="social-icon hover:-translate-y-0.5 transition-transform" aria-label="GitHub">
+              <FaGithub />
+            </a>
+            <a href="https://www.instagram.com/tsi_bantegize?igsh=MTdjZnJpMmtwd293Ng==" target="_blank" rel="noopener noreferrer" className="social-icon hover:-translate-y-0.5 transition-transform" aria-label="Instagram">
               <FaInstagram />
             </a>
-            <a href="https://www.linkedin.com/in/tsion-bantegize-007780285?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" className="social-icon hover:-translate-y-0.5 hover:text-primary-500 transition-transform">
+            <a href="https://www.linkedin.com/in/tsion-bantegize-007780285?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" className="social-icon hover:-translate-y-0.5 transition-transform" aria-label="LinkedIn">
               <FaLinkedinIn />
             </a>
           </div>
@@ -86,8 +89,8 @@ const Home = () => {
         </div>
 
         {/* Left: Photo (reversed) */}
-        <div className="order-1 lg:order-1 flex justify-center lg:justify-start lg:ml-6 animate-slideInLeft">
-          <div className="relative group w-72 md:w-96 aspect-[4/5]">
+        <div className="order-1 lg:order-1 flex justify-center lg:justify-start lg:ml-4 animate-slideInLeft">
+          <div className="relative group w-64 md:w-80 lg:w-[22rem] aspect-[4/5]">
             {/* Gradient frame */}
             <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-br from-primary-200/70 to-primary-300/50 blur opacity-70 group-hover:opacity-90 transition"></div>
             {/* Card */}
@@ -99,7 +102,7 @@ const Home = () => {
               />
               {/* Top-left badge */}
               <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-primary-100/90 dark:bg-primary-300/30 border border-primary-200/70 dark:border-primary-300/30 text-[10px] font-semibold text-primary-400 dark:text-primary-50 shadow-sm">
-                Full‑Stack Developer
+                Front‑End Developer
               </div>
             </div>
           </div>
