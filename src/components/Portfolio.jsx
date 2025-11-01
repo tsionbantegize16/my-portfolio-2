@@ -1,12 +1,12 @@
 import React from 'react';
 
 const projectsData = [
-  { id: 1, img: '/1.png', alt: 'Project 1', link: '#' }, // Placeholder
-  { id: 2, img: '/2.png', alt: 'Project 2', link: '#' }, // Placeholder
-  { id: 3, img: '/wikpedia.png', alt: 'Wikipedia Clone', link: '#' }, // Placeholder
-  { id: 4, img: '/rick-and-morty-figma.png', alt: 'Rick and Morty Page', link: 'https://rick-morty-pages-rj6a.vercel.app/' }, // Placeholder
-  { id: 5, img: '/list-of-country.png', alt: 'List of Countries', link: '#' }, // Placeholder
-  { id: 6, img: '/resto.jpg', alt: 'Restaurant Website', link: '#' }, // Placeholder
+  { id: 1, img: '/coop-bank.jpg', alt: 'Coop Bank Oromia API Platform', link: 'https://developers.coopbankoromiasc.com/', description: 'Banking API Developer Platform' },
+  { id: 2, img: '/etwic.jpg', alt: 'ETWIC - Ethiopian Women in Computing', link: 'https://etwic.org/', description: 'Ethiopian Women in Computing Organization' },
+  { id: 3, img: '/etnerd.jpg', alt: 'ETNerd - Ethiopian Tech Community', link: 'https://www.etnerd.com/', description: 'Ethiopian Technology Community Platform' },
+  { id: 4, img: '/rick-and-morty-figma.png', alt: 'Rick and Morty Page', link: 'https://rick-morty-pages-rj6a.vercel.app/', description: 'Rick and Morty Character Explorer' },
+  { id: 5, img: '/ipv6et.jpg', alt: 'IPv6 Ethiopia', link: 'https://www.ipv6et.org/', description: 'IPv6 Adoption and Education in Ethiopia' },
+  { id: 6, img: '/secure-ai-africa.jpg', alt: 'Secure AI Africa', link: 'https://secureaiafrica.africa/', description: 'AI Security and Innovation in Africa' },
 ];
 
 const Portfolio = () => {
@@ -27,14 +27,24 @@ const Portfolio = () => {
               // FIX: Changed `${index * 0.1s}` to `${index * 0.1}s` for correct JavaScript syntax
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              {/* Placeholder image. Replace with your actual project images in the public folder */}
-              <img src={project.img} alt={project.alt} className="w-full h-64 object-cover object-center transition-transform duration-500 ease-in-out group-hover:scale-110" />
-              <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+              {/* Project cover image */}
+              <img 
+                src={project.img} 
+                alt={project.alt} 
+                className="w-full h-64 object-cover object-center transition-transform duration-500 ease-in-out group-hover:scale-110" 
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = '/logo192.png'; // Fallback image if the project image fails to load
+                }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent flex flex-col items-center justify-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+                <h3 className="text-white text-xl font-bold mb-2">{project.alt}</h3>
+                <p className="text-gray-200 text-sm mb-4 text-center">{project.description}</p>
                 <a
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-primary-50 text-xl font-semibold bg-primary-200 px-6 py-3 rounded-lg
+                  className="text-primary-50 text-lg font-semibold bg-primary-200 px-5 py-2 rounded-lg
                              hover:bg-primary-300 transform hover:scale-105 transition-all duration-300 ease-in-out"
                 >
                   View Project

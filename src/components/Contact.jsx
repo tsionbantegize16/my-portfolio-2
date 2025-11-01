@@ -59,7 +59,6 @@ const Contact = () => {
             <ul className="space-y-2 text-primary-500/90 dark:text-primary-50/85 text-sm">
               <li>• Preferred: email reply</li>
               <li>• Typical response time: under 48 hours</li>
-              <li>• Location: Bahir Dar, Ethiopia</li>
             </ul>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
               <div className="group rounded-xl border border-primary-200/60 dark:border-primary-300/20 bg-white/70 dark:bg-primary-300/10 backdrop-blur-sm p-4 text-primary-500 dark:text-primary-50 transition-all hover:-translate-y-1 hover:shadow-lg">

@@ -68,20 +68,20 @@ const Home = () => {
 
           {/* Socials */}
           <div className="mt-8 flex items-center justify-center lg:justify-start gap-6">
+          <a href="https://github.com/tsionbantegize" target="_blank" rel="noopener noreferrer" className="social-icon hover:-translate-y-0.5 transition-transform" aria-label="GitHub">
+              <FaGithub />
+            </a>
+            <a href="https://www.linkedin.com/in/tsion-bantegize-007780285?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" className="social-icon hover:-translate-y-0.5 transition-transform" aria-label="LinkedIn">
+              <FaLinkedinIn />
+            </a>
             <a href="https://www.facebook.com/profile.php?id=61551880407217&mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" className="social-icon hover:-translate-y-0.5 transition-transform" aria-label="Facebook">
               <FaFacebookF />
             </a>
             <a href="https://gitlab.com/tsionbantegize/" target="_blank" rel="noopener noreferrer" className="social-icon hover:-translate-y-0.5 transition-transform" aria-label="GitLab">
               <FaGitlab />
             </a>
-            <a href="https://github.com/tsionbantegize" target="_blank" rel="noopener noreferrer" className="social-icon hover:-translate-y-0.5 transition-transform" aria-label="GitHub">
-              <FaGithub />
-            </a>
             <a href="https://www.instagram.com/tsi_bantegize?igsh=MTdjZnJpMmtwd293Ng==" target="_blank" rel="noopener noreferrer" className="social-icon hover:-translate-y-0.5 transition-transform" aria-label="Instagram">
               <FaInstagram />
-            </a>
-            <a href="https://www.linkedin.com/in/tsion-bantegize-007780285?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" className="social-icon hover:-translate-y-0.5 transition-transform" aria-label="LinkedIn">
-              <FaLinkedinIn />
             </a>
           </div>
 
