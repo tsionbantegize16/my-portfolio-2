@@ -1,152 +1,231 @@
 import React, { useState } from 'react';
-import { FiMail, FiPhone, FiUser } from 'react-icons/fi';
+import { FiMail, FiPhone, FiSend, FiCopy, FiCheck, FiMapPin, FiMessageSquare } from 'react-icons/fi';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    subject: '',
     message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [touched, setTouched] = useState({ name: false, email: false, message: false });
+  const [submitted, setSubmitted] = useState(false);
+  const [copiedText, setCopiedText] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prevData) => ({ ...prevData, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleBlur = (e) => {
-    const { name } = e.target;
-    setTouched((prev) => ({ ...prev, [name]: true }));
+  const handleCopy = (text, type) => {
+    navigator.clipboard.writeText(text);
+    setCopiedText(type);
+    setTimeout(() => setCopiedText(null), 2000);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate async submit
-    await new Promise((r) => setTimeout(r, 800));
-    console.log('Form submitted:', formData);
-    alert('Message sent successfully!');
-    setFormData({ name: '', email: '', message: '' });
-    setTouched({ name: false, email: false, message: false });
+
+    // Simulate async submission
+    await new Promise((r) => setTimeout(r, 1000));
     setIsSubmitting(false);
+    setSubmitted(true);
+    setFormData({ name: '', email: '', subject: '', message: '' });
+
+    setTimeout(() => setSubmitted(false), 5000);
   };
 
-  const emailValid = formData.email.includes('@');
-  const canSubmit = formData.name && emailValid && formData.message && !isSubmitting;
+  const isFormValid = formData.name.trim() && formData.email.includes('@') && formData.message.trim();
 
   return (
-    <section id="contact" className="relative py-16 px-6 bg-primary-50 dark:bg-primary-400 transition-colors duration-700 ease-in-out overflow-hidden">
-      {/* Decorative backdrop */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-primary-200/60 dark:bg-primary-300/20 blur-3xl"></div>
-        <div className="absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-primary-100/70 dark:bg-primary-300/10 blur-3xl"></div>
-      </div>
+    <section id="contact" className="relative py-24 px-6 bg-slate-50 dark:bg-slate-950 transition-colors duration-300 overflow-hidden">
+      {/* Background ambient lighting */}
+      <div className="pointer-events-none absolute top-10 left-10 w-96 h-96 bg-teal-500/15 rounded-full blur-3xl"></div>
+      <div className="pointer-events-none absolute bottom-10 right-10 w-96 h-96 bg-emerald-500/15 rounded-full blur-3xl"></div>
 
-      <div className="container mx-auto relative z-10">
-        <div className="heading text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-primary-300 dark:from-primary-50 dark:to-primary-200 animate-fadeInUp">Contact</h2>
-          <span className="inline-flex items-center gap-2 mt-2 px-3 py-1 rounded-full text-xs font-semibold bg-primary-100/70 dark:bg-primary-300/20 border border-primary-200/60 dark:border-primary-300/30 text-primary-400 dark:text-primary-50 animate-fadeInUp delay-100">Connect With Me</span>
+      <div className="container mx-auto max-w-6xl relative z-10 space-y-16">
+        
+        {/* Section Heading */}
+        <div className="heading text-center space-y-2">
+          <span>Get In Touch</span>
+          <h2>Let’s Build Something Great</h2>
+          <p className="text-slate-600 dark:text-slate-400 max-w-xl mx-auto text-base">
+            Have a project in mind, a freelance inquiry, or just want to connect? Send me a message below.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
-          {/* Left: Info */}
-          <div className="space-y-4 animate-slideInLeft">
-            <h3 className="text-2xl font-semibold text-primary-500 dark:text-primary-50">Let’s build something great</h3>
-            <p className="text-primary-500/90 dark:text-primary-50/85 max-w-xl">
-              I’m available for freelance projects, collaborations, or just a friendly chat. Fill out the form and I’ll get back to you within 24–48 hours.
-            </p>
-            <ul className="space-y-2 text-primary-500/90 dark:text-primary-50/85 text-sm">
-              <li>• Preferred: email reply</li>
-              <li>• Typical response time: under 48 hours</li>
-            </ul>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
-              <div className="group rounded-xl border border-primary-200/60 dark:border-primary-300/20 bg-white/70 dark:bg-primary-300/10 backdrop-blur-sm p-4 text-primary-500 dark:text-primary-50 transition-all hover:-translate-y-1 hover:shadow-lg">
-                <FiUser className="text-lg mb-1" />
-                <div className="text-xs opacity-80">Name</div>
-                <div className="font-semibold">Tsion Bantegize</div>
+        {/* Contact Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          
+          {/* Left Column: Quick Contact Info */}
+          <div className="lg:col-span-5 space-y-6 animate-slideInLeft">
+            <div className="glass-card p-8 space-y-6 border-teal-500/20">
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                <FiMessageSquare className="text-teal-500" /> Direct Contact Info
+              </h3>
+              <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                I am usually available for new contract projects, engineering roles, and technical collaborations. Expect a reply within 24 hours.
+              </p>
+
+              <div className="space-y-4 pt-2">
+                {/* Email Card */}
+                <div className="p-4 rounded-2xl bg-teal-50/60 dark:bg-slate-800/80 border border-teal-200/80 dark:border-teal-800/60 flex items-center justify-between gap-3">
+                  <div className="flex items-center gap-3 overflow-hidden">
+                    <div className="w-10 h-10 rounded-xl bg-teal-500/10 text-teal-600 dark:text-teal-400 flex items-center justify-center text-lg flex-shrink-0">
+                      <FiMail />
+                    </div>
+                    <div className="overflow-hidden">
+                      <div className="text-[11px] font-bold text-slate-600 dark:text-slate-400 uppercase">Email</div>
+                      <div className="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white truncate">tsionbantegize@gmail.com</div>
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => handleCopy('tsionbantegize@gmail.com', 'email')}
+                    className="p-2 rounded-xl bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:text-teal-500 shadow-sm border border-slate-200 dark:border-slate-800 flex-shrink-0"
+                    title="Copy Email"
+                  >
+                    {copiedText === 'email' ? <FiCheck className="text-emerald-500" /> : <FiCopy />}
+                  </button>
+                </div>
+
+                {/* Phone Card */}
+                <div className="p-4 rounded-2xl bg-slate-100/80 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 flex items-center justify-between gap-3">
+                  <div className="flex items-center gap-3 overflow-hidden">
+                    <div className="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-lg flex-shrink-0">
+                      <FiPhone />
+                    </div>
+                    <div className="overflow-hidden">
+                      <div className="text-[11px] font-bold text-slate-600 dark:text-slate-400 uppercase">Phone / Mobile</div>
+                      <div className="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white truncate">+251 995 220 266</div>
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => handleCopy('+251995220266', 'phone')}
+                    className="p-2 rounded-xl bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:text-cyan-500 shadow-sm border border-slate-200 dark:border-slate-800 flex-shrink-0"
+                    title="Copy Phone Number"
+                  >
+                    {copiedText === 'phone' ? <FiCheck className="text-emerald-500" /> : <FiCopy />}
+                  </button>
+                </div>
+
+                {/* Location Card */}
+                <div className="p-4 rounded-2xl bg-slate-100/80 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-lg flex-shrink-0">
+                    <FiMapPin />
+                  </div>
+                  <div>
+                    <div className="text-[11px] font-bold text-slate-600 dark:text-slate-400 uppercase">Location</div>
+                    <div className="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white">Addis Ababa, Ethiopia</div>
+                  </div>
+                </div>
               </div>
-              <div className="group rounded-xl border border-primary-200/60 dark:border-primary-300/20 bg-white/70 dark:bg-primary-300/10 backdrop-blur-sm p-4 text-primary-500 dark:text-primary-50 transition-all hover:-translate-y-1 hover:shadow-lg">
-                <FiPhone className="text-lg mb-1" />
-                <div className="text-xs opacity-80">Phone</div>
-                <div className="font-semibold">+251 995 220 266</div>
-              </div>
-              <div className="group rounded-xl border border-primary-200/60 dark:border-primary-300/20 bg-white/70 dark:bg-primary-300/10 backdrop-blur-sm p-4 text-primary-500 dark:text-primary-50 transition-all hover:-translate-y-1 hover:shadow-lg">
-                <FiMail className="text-lg mb-1" />
-                <div className="text-xs opacity-80">Email</div>
-                <div className="font-semibold break-all">tsionbantegize@gmail.com</div>
-              </div>
+
             </div>
           </div>
 
-          {/* Right: Form */}
-          <div className="relative animate-slideInRight">
-            <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-br from-primary-200/70 to-primary-300/50 blur opacity-70"></div>
-            <div className="relative rounded-2xl border border-primary-200/70 dark:border-primary-300/30 bg-white/80 dark:bg-primary-300/10 backdrop-blur p-6 md:p-8">
+          {/* Right Column: Contact Form */}
+          <div className="lg:col-span-7 animate-slideInRight">
+            <div className="glass-card p-8 sm:p-10 relative">
+              
+              {/* Toast Banner */}
+              {submitted && (
+                <div className="mb-6 p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 flex items-center gap-3 text-sm font-semibold animate-fadeIn">
+                  <FiCheck className="text-xl flex-shrink-0" />
+                  <span>Thank you! Your message has been sent successfully. I will get back to you shortly.</span>
+                </div>
+              )}
+
               <form onSubmit={handleSubmit} className="space-y-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <div>
+                    <label htmlFor="name" className="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-2">
+                      Your Name *
+                    </label>
+                    <input
+                      id="name"
+                      type="text"
+                      name="name"
+                      placeholder="e.g. Alex Johnson"
+                      value={formData.name}
+                      onChange={handleChange}
+                      className="input-field"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="email" className="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-2">
+                      Email Address *
+                    </label>
+                    <input
+                      id="email"
+                      type="email"
+                      name="email"
+                      placeholder="e.g. alex@example.com"
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="input-field"
+                      required
+                    />
+                  </div>
+                </div>
+
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-primary-500 dark:text-primary-50 mb-1">Name</label>
+                  <label htmlFor="subject" className="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-2">
+                    Subject
+                  </label>
                   <input
-                    id="name"
+                    id="subject"
                     type="text"
-                    name="name"
-                    placeholder="Your Name"
-                    value={formData.name}
+                    name="subject"
+                    placeholder="Project Inquiry / Hiring / Question"
+                    value={formData.subject}
                     onChange={handleChange}
-                    onBlur={handleBlur}
-                    className={`w-full px-4 py-3 rounded-lg border bg-white/90 dark:bg-primary-400/10 text-primary-500 dark:text-primary-50 placeholder-primary-400/50 outline-none transition
-                               border-primary-200/70 dark:border-primary-300/30 focus:ring-2 focus:ring-primary-300/60`}
-                    required
+                    className="input-field"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-primary-500 dark:text-primary-50 mb-1">Email</label>
-                  <input
-                    id="email"
-                    type="email"
-                    name="email"
-                    placeholder="you@example.com"
-                    value={formData.email}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    className={`w-full px-4 py-3 rounded-lg border bg-white/90 dark:bg-primary-400/10 text-primary-500 dark:text-primary-50 placeholder-primary-400/50 outline-none transition
-                               border-primary-200/70 dark:border-primary-300/30 focus:ring-2 focus:ring-primary-300/60`}
-                    required
-                  />
-                  {touched.email && !emailValid && (
-                    <p className="mt-1 text-xs text-red-500">Please enter a valid email address.</p>
-                  )}
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-primary-500 dark:text-primary-50 mb-1">Message</label>
+                  <label htmlFor="message" className="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-2">
+                    Message *
+                  </label>
                   <textarea
                     id="message"
                     name="message"
-                    rows="6"
-                    placeholder="Write your message..."
+                    rows="5"
+                    placeholder="Tell me about your project or inquiry..."
                     value={formData.message}
                     onChange={handleChange}
-                    onBlur={handleBlur}
-                    className={`w-full px-4 py-3 rounded-lg border bg-white/90 dark:bg-primary-400/10 text-primary-500 dark:text-primary-50 placeholder-primary-400/50 outline-none transition resize-y
-                               border-primary-200/70 dark:border-primary-300/30 focus:ring-2 focus:ring-primary-300/60`}
+                    className="input-field resize-y"
                     required
                   ></textarea>
                 </div>
 
                 <button
                   type="submit"
-                  disabled={!canSubmit}
-                  className={`w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full btn-primary
-                             ${isSubmitting ? 'opacity-80 cursor-wait' : 'hover:scale-105 hover:shadow-xl'} transition`}
+                  disabled={!isFormValid || isSubmitting}
+                  className={`w-full btn-primary py-4 text-base ${
+                    !isFormValid || isSubmitting ? 'opacity-60 cursor-not-allowed' : 'hover:scale-[1.01]'
+                  }`}
                 >
-                  {isSubmitting ? 'Sending…' : 'Send Message'}
+                  {isSubmitting ? (
+                    <span>Sending Message...</span>
+                  ) : (
+                    <>
+                      Send Message <FiSend className="text-lg" />
+                    </>
+                  )}
                 </button>
               </form>
+
             </div>
           </div>
+
         </div>
+
       </div>
     </section>
   );

@@ -2,88 +2,71 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom Tailwind components */
-@layer components {
-  .nav-link {
-    @apply text-primary-400 dark:text-primary-100 text-lg font-medium hover:text-primary-200 dark:hover:text-primary-200 transition-colors duration-300 ease-in-out;
-  }
-  .social-icon {
-    @apply text-3xl text-primary-400 dark:text-primary-50 hover:text-primary-300 dark:hover:text-primary-200 transform hover:scale-125 transition-all duration-300 ease-in-out drop-shadow-sm;
-  }
-  .btn-primary {
-    @apply inline-flex items-center justify-center bg-primary-400 text-primary-50 font-semibold py-3 px-8 rounded-full shadow-lg
-           hover:bg-primary-300 hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-200/80 focus-visible:ring-offset-2 focus-visible:ring-offset-primary-50
-           dark:bg-primary-200 dark:text-primary-400 dark:hover:bg-primary-200/90 dark:focus-visible:ring-primary-100/60 transition-all duration-300 ease-in-out;
-  }
-  .heading h2 {
-    @apply text-4xl font-bold mb-2 text-primary-400 dark:text-primary-50;
-  }
-  .heading span {
-    @apply text-lg font-medium text-primary-200 dark:text-primary-200;
-  }
-  .info-box {
-    @apply flex items-center space-x-4 p-4 rounded-lg bg-primary-100 dark:bg-primary-400 shadow-md
-           transform hover:scale-105 transition-all duration-300 ease-in-out;
-  }
-  .info-icon {
-    @apply text-primary-200 dark:text-primary-200 text-3xl flex-shrink-0;
-  }
-  .input-field {
-    @apply w-full p-4 border border-primary-300 dark:border-primary-300 rounded-lg bg-primary-50 dark:bg-primary-400 text-primary-400 dark:text-primary-50
-           focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-transparent transition-all duration-300 ease-in-out;
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   }
   
-  /* Dark mode specific styles */
-  .dark-mode-toggle {
-    @apply relative p-2 rounded-full bg-primary-100 dark:bg-primary-400 hover:bg-primary-200 dark:hover:bg-primary-300 
-           transition-all duration-300 ease-in-out group;
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
   }
-  
-  .card {
-    @apply bg-primary-50 dark:bg-primary-400 rounded-xl shadow-lg hover:shadow-xl 
-           transition-all duration-300 ease-in-out border border-primary-200 dark:border-primary-300;
+  ::-webkit-scrollbar-track {
+    background: rgba(15, 23, 42, 0.05);
   }
-  
-  .section {
-    @apply py-16 px-6 bg-primary-50 dark:bg-primary-400 transition-colors duration-700 ease-in-out;
+  .dark ::-webkit-scrollbar-track {
+    background: rgba(15, 23, 42, 0.5);
   }
-  
-  /* Skills specific styles */
-  .skill-card {
-    @apply relative p-6 rounded-2xl bg-primary-50/80 dark:bg-primary-400/80 backdrop-blur-sm 
-           border border-primary-200/50 dark:border-primary-300/50
-           transform transition-all duration-500 ease-out cursor-pointer
-           hover:scale-105 hover:shadow-xl hover:border-primary-200 dark:hover:border-primary-200;
+  ::-webkit-scrollbar-thumb {
+    background: rgba(14, 165, 233, 0.4);
+    border-radius: 9999px;
   }
-  
-  .skill-card:hover {
-    @apply shadow-2xl;
-  }
-  
-  .skill-icon-container {
-    @apply relative w-16 h-16 rounded-xl bg-gradient-to-br from-primary-100 to-primary-200 
-           dark:from-primary-400 dark:to-primary-300 
-           flex items-center justify-center transition-transform duration-300 ease-out;
-  }
-  
-  .skill-progress {
-    @apply w-full bg-primary-200 dark:bg-primary-300 rounded-full h-2 overflow-hidden;
-  }
-  
-  .skill-progress-bar {
-    @apply h-full rounded-full transition-all duration-1000 ease-out;
-  }
-  
-  .category-badge {
-    @apply px-2 py-1 text-xs font-medium bg-primary-100 dark:bg-primary-400/30 
-           text-primary-300 dark:text-primary-100 rounded-full;
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(14, 165, 233, 0.8);
   }
 }
 
-/* Keyframes for animations */
+/* Custom Tailwind components */
+@layer components {
+  .nav-link {
+    @apply text-slate-700 dark:text-slate-200 text-sm font-medium hover:text-teal-600 dark:hover:text-teal-400 transition-colors duration-200 ease-in-out;
+  }
+  .social-icon {
+    @apply text-2xl text-slate-600 dark:text-slate-300 hover:text-teal-500 dark:hover:text-teal-400 transform hover:scale-110 transition-all duration-300 ease-in-out;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 bg-gradient-to-r from-teal-500 via-brand-500 to-emerald-500 hover:from-teal-400 hover:to-emerald-400 text-white font-semibold py-3 px-7 rounded-full shadow-lg shadow-teal-500/30 hover:shadow-teal-500/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 transition-all duration-300 ease-in-out;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 bg-white/90 dark:bg-slate-800/90 text-slate-800 dark:text-slate-100 font-semibold py-3 px-7 rounded-full border border-slate-200 dark:border-slate-700/80 hover:bg-teal-50 dark:hover:bg-slate-700/80 hover:border-teal-400/50 shadow-sm hover:shadow transition-all duration-300 ease-in-out;
+  }
+  .heading h2 {
+    @apply text-4xl md:text-5xl font-extrabold mb-3 tracking-tight text-slate-900 dark:text-white;
+  }
+  .heading span {
+    @apply text-sm font-semibold tracking-wider uppercase text-teal-600 dark:text-teal-400;
+  }
+  .glass-card {
+    @apply bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-teal-500/20 dark:border-teal-500/20 shadow-lg shadow-teal-900/5 dark:shadow-black/40 rounded-2xl transition-all duration-300 ease-out;
+  }
+  .glass-card-hover {
+    @apply hover:border-teal-500/60 dark:hover:border-teal-400/60 hover:shadow-xl hover:shadow-teal-500/15 hover:-translate-y-1;
+  }
+  .input-field {
+    @apply w-full px-4 py-3.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all duration-200 ease-in-out;
+  }
+  .category-badge {
+    @apply px-3 py-1 text-xs font-semibold bg-teal-50 dark:bg-teal-950/80 text-teal-700 dark:text-teal-300 border border-teal-200/80 dark:border-teal-800/80 rounded-full;
+  }
+  .pause-on-hover:hover {
+    animation-play-state: paused !important;
+  }
+}
+
+/* Animations */
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeInUp {
@@ -92,95 +75,23 @@
 }
 
 @keyframes slideInLeft {
-  from { opacity: 0; transform: translateX(-50px); }
+  from { opacity: 0; transform: translateX(-40px); }
   to { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes slideInRight {
-  from { opacity: 0; transform: translateX(50px); }
+  from { opacity: 0; transform: translateX(40px); }
   to { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes zoomIn {
-  from { opacity: 0; transform: scale(0.9); }
+  from { opacity: 0; transform: scale(0.95); }
   to { opacity: 1; transform: scale(1); }
 }
 
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(-25%);
-    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
-  }
-  50% {
-    transform: none;
-    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-  }
-}
+.animate-fadeIn { animation: fadeIn 0.6s ease-out forwards; }
+.animate-fadeInUp { animation: fadeInUp 0.6s ease-out forwards; }
+.animate-slideInLeft { animation: slideInLeft 0.6s ease-out forwards; }
+.animate-slideInRight { animation: slideInRight 0.6s ease-out forwards; }
+.animate-zoomIn { animation: zoomIn 0.5s ease-out forwards; }
 
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-}
-
-@keyframes glow {
-  0%, 100% { box-shadow: 0 0 5px rgba(59, 130, 246, 0.5); }
-  50% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.8), 0 0 30px rgba(59, 130, 246, 0.6); }
-}
-
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-
-@keyframes bounce-slow {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-/* Apply animations */
-.animate-fadeIn { animation: fadeIn 0.8s ease-out forwards; }
-.animate-fadeInUp { animation: fadeInUp 0.8s ease-out forwards; }
-.animate-slideInLeft { animation: slideInLeft 0.8s ease-out forwards; }
-.animate-slideInRight { animation: slideInRight 0.8s ease-out forwards; }
-.animate-zoomIn { animation: zoomIn 0.8s ease-out forwards; }
-.animate-bounce { animation: bounce 1s infinite; }
-.animate-slideUp { animation: slideUp 0.6s ease-out forwards; }
-.animate-rotate { animation: rotate 2s linear infinite; }
-.animate-pulse { animation: pulse 2s ease-in-out infinite; }
-.animate-float { animation: float 3s ease-in-out infinite; }
-.animate-glow { animation: glow 2s ease-in-out infinite; }
-.animate-shimmer { 
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-  background-size: 200% 100%;
-  animation: shimmer 2s infinite;
-}
-.animate-bounce-slow { animation: bounce-slow 3s ease-in-out infinite; }
-
-/* Dark mode transition utilities */
-.dark-mode-transition {
-  @apply transition-all duration-500 ease-in-out;
-}
-
-.dark-mode-transition-fast {
-  @apply transition-all duration-300 ease-in-out;
-}
-
-/* Ensure dark mode class is applied to html */
-html.dark {
-  /* Tailwind automatically handles dark classes based on this */
-}

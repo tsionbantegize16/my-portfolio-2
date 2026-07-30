@@ -1,85 +1,119 @@
 import React from 'react';
-import { FiCode, FiDatabase, FiLayers, FiPenTool, FiServer } from 'react-icons/fi';
-import { FaFigma } from 'react-icons/fa'; // Figma icon from Font Awesome
+import { FiCode, FiDatabase, FiLayers, FiPenTool, FiServer, FiArrowRight, FiCheckCircle, FiShield, FiCpu, FiCreditCard } from 'react-icons/fi';
 
 const servicesData = [
   {
-    title: 'Front-End Development',
-    icon: <FiCode className="text-2xl" />,
-    description: 'Fast, responsive, and maintainable web interfaces built with Vue.js, Nuxt, React, and Next.js using clean architecture and reusable components powered by Tailwind CSS.',
+    title: 'Fintech & Digital Banking Rails',
+    icon: FiCreditCard,
+    description: 'Engineering secure digital lending workflows, agency banking tools, payment gateway integrations, and high-volume transaction processing.',
+    deliverables: ['Digital Lending Workflows', 'Payment Gateway Integrations', 'Agency Banking Portals'],
+    tags: ['Fintech', 'Digital Banking', 'Payment Gateways', 'Lending API'],
   },
   {
-    title: 'UI/UX Design',
-    icon: <FiPenTool className="text-2xl" />,
-    description: 'Intuitive, visually balanced interfaces crafted in Figma and Canva where accessibility, clarity, and aesthetics work together for effortless experiences.',
+    title: 'Enterprise Software Architecture',
+    icon: FiCpu,
+    description: 'Designing resilient microservices and high-availability enterprise backend infrastructure tailored for scale and compliance.',
+    deliverables: ['Innovation Incubation System (IIMS)', 'High-Availability Node.js APIs', 'Microservice Security'],
+    tags: ['Architecture', 'Enterprise', 'Microservices', 'Node.js'],
   },
   {
-    title: 'API Integration & Data Handling',
-    icon: <FiDatabase className="text-2xl" />,
-    description: 'GraphQL and REST integrations that bridge interfaces with real data, leveraging PostgreSQL, Hasura, and Strapi for secure, performant content management.',
+    title: 'Full-Stack Web & Mobile Engineering',
+    icon: FiCode,
+    description: 'Blazing-fast, responsive web interfaces and mobile apps built with React, Next.js, Vue, Nuxt, and Tailwind CSS frameworks.',
+    deliverables: ['Custom Web Applications', 'Mobile App UI (React Native/Flutter)', 'Reusable Design Systems'],
+    tags: ['React', 'Next.js', 'Vue', 'Nuxt', 'Tailwind'],
   },
   {
-    title: 'Back-End Support',
-    icon: <FiServer className="text-2xl" />,
-    description: 'Lightweight back-end services using Node.js, Strapi, Spring, and Docker to deliver deployable solutions that pair seamlessly with modern front-end frameworks.',
+    title: 'API Integration & Data Pipelines',
+    icon: FiDatabase,
+    description: 'Robust RESTful API and GraphQL data pipelines connecting rich frontend client apps with PostgreSQL, Hasura, and headless CMS.',
+    deliverables: ['GraphQL & REST Client Architecture', 'Real-Time Data Synchronization', 'PostgreSQL & Hasura Models'],
+    tags: ['GraphQL', 'REST API', 'PostgreSQL', 'Hasura', 'Strapi'],
   },
   {
-    title: 'Product Prototyping',
-    icon: <FiLayers className="text-2xl" />,
-    description: 'Concept-to-prototype workflows that translate ideas into interactive mockups and responsive UI components for rapid validation.',
+    title: 'Innovation Management & Prototyping',
+    icon: FiLayers,
+    description: 'Translating concepts into structured innovation management systems and rapid MVP prototypes for digital transformation hubs.',
+    deliverables: ['Innovation Management Tracking', 'Interactive Proof-of-Concepts', 'MVP Launch Acceleration'],
+    tags: ['KAB Digital', 'DX Valley Incubator', 'MVP Prototyping'],
   },
 ];
 
 const Services = () => {
   return (
-    <section id="services" className="relative py-16 px-6 bg-primary-50 dark:bg-primary-400 transition-colors duration-700 ease-in-out overflow-hidden">
-      {/* Minimal decorative wash */}
-      <div className="pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,white,transparent_65%)]">
-        <div className="absolute -top-32 -right-24 w-[28rem] h-[28rem] rounded-full bg-primary-200/40 dark:bg-primary-300/10 blur-3xl"></div>
-        <div className="absolute -bottom-40 -left-24 w-[26rem] h-[26rem] rounded-full bg-primary-100/60 dark:bg-primary-300/10 blur-3xl"></div>
-      </div>
+    <section id="services" className="relative py-24 px-6 bg-slate-50 dark:bg-slate-950 transition-colors duration-300 overflow-hidden">
+      {/* Ambient background glows */}
+      <div className="pointer-events-none absolute -top-20 -left-20 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"></div>
+      <div className="pointer-events-none absolute -bottom-20 -right-20 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl"></div>
 
-      <div className="container mx-auto relative z-10">
-        <div className="heading text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-primary-300 dark:from-primary-50 dark:to-primary-200 animate-fadeInUp">Services</h2>
-          <span className="inline-flex items-center gap-2 mt-2 px-3 py-1 rounded-full text-xs font-semibold bg-primary-100/70 dark:bg-primary-300/20 border border-primary-200/60 dark:border-primary-300/30 text-primary-400 dark:text-primary-50 animate-fadeInUp delay-100">What I Offer</span>
+      <div className="container mx-auto max-w-6xl relative z-10 space-y-16">
+        
+        {/* Section Heading */}
+        <div className="heading text-center space-y-2">
+          <span>What I Offer</span>
+          <h2>Services & Solutions</h2>
+          <p className="text-slate-600 dark:text-slate-400 max-w-xl mx-auto text-base">
+            End-to-end digital solutions designed to elevate your brand and engage your audience.
+          </p>
         </div>
 
-        {/* Alternating feature rows (no cards) */}
-        <div className="relative">
-          {/* Vertical rail */}
-          <div className="hidden md:block absolute left-5 top-0 bottom-0 w-px bg-gradient-to-b from-primary-200/80 via-primary-300/40 to-transparent"></div>
-
-          <ul className="space-y-2">
-            {servicesData.map((service, index) => (
-              <li key={index} className={`${index % 2 === 0 ? 'bg-primary-100/40 dark:bg-primary-300/10' : 'bg-transparent'} rounded-lg transition-colors`}>
-                <div className="grid md:grid-cols-12 items-start gap-6 px-4 md:px-6 py-6">
-                  {/* Icon + rail node */}
-                  <div className="md:col-span-2 flex md:block items-center md:items-start md:pl-2 relative">
-                    {/* Rail node */}
-                    <div className="hidden md:block absolute -left-[7px] top-1.5 w-3 h-3 rounded-full bg-gradient-to-br from-primary-300 to-primary-400"></div>
-                    <div className="inline-flex items-center justify-center w-12 h-12 md:mt-[-4px] rounded-full bg-gradient-to-br from-primary-200 to-primary-300 text-primary-700 dark:text-primary-100">
-                      {service.icon}
-                    </div>
+        {/* Services Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {servicesData.map((service, index) => {
+            const Icon = service.icon;
+            return (
+              <div
+                key={service.title}
+                className="group p-8 glass-card glass-card-hover flex flex-col justify-between relative overflow-hidden border-teal-500/20"
+              >
+                {/* Header Icon + Title */}
+                <div className="space-y-4">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-teal-500 via-brand-500 to-emerald-500 text-white flex items-center justify-center text-2xl shadow-lg shadow-teal-500/25 group-hover:scale-110 transition-transform duration-300">
+                    <Icon />
                   </div>
 
-                  {/* Content */}
-                  <div className="md:col-span-10">
-                    <h3 className="text-xl md:text-2xl font-semibold text-primary-500 dark:text-primary-50">
-                      {service.title}
-                    </h3>
-                    <p className="mt-1.5 text-primary-500/90 dark:text-primary-50/85 max-w-3xl">
-                      {service.description}
-                    </p>
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
+                    {service.title}
+                  </h3>
 
-                    {/* Underline accent */}
-                    <div className="mt-4 h-px w-24 bg-gradient-to-r from-primary-300 to-primary-400 opacity-70"></div>
+                  <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
+                    {service.description}
+                  </p>
+
+                  {/* Key Deliverables List */}
+                  <div className="pt-2 space-y-2 border-t border-slate-200/80 dark:border-slate-800">
+                    <div className="text-xs font-bold text-slate-900 dark:text-slate-200 uppercase tracking-wider">Key Deliverables</div>
+                    {service.deliverables.map((item, i) => (
+                      <div key={i} className="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-400">
+                        <FiCheckCircle className="text-emerald-500 text-sm flex-shrink-0" />
+                        <span>{item}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
-              </li>
-            ))}
-          </ul>
+
+                {/* Tags & Action Link */}
+                <div className="pt-6 space-y-4">
+                  <div className="flex flex-wrap gap-1.5">
+                    {service.tags.map((tag) => (
+                      <span key={tag} className="px-2.5 py-1 text-[11px] font-semibold bg-teal-50 dark:bg-teal-950/60 text-teal-700 dark:text-teal-300 border border-teal-200/60 dark:border-teal-800/60 rounded-lg">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  <a
+                    href="#contact"
+                    className="inline-flex items-center gap-2 text-xs font-bold text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 transition-colors group-hover:translate-x-1 duration-200"
+                  >
+                    Start a Project <FiArrowRight className="text-sm" />
+                  </a>
+                </div>
+              </div>
+            );
+          })}
         </div>
+
       </div>
     </section>
   );

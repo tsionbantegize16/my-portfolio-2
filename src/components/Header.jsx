@@ -14,125 +14,134 @@ const navItems = [
 const Header = () => {
   const { darkMode, toggleDarkMode } = useDarkMode();
   const [isOpen, setIsOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
   const [active, setActive] = useState('home');
+  const [scrolled, setScrolled] = useState(false);
 
+  // Scroll spy & scrolled state listener
   useEffect(() => {
-    setMounted(true);
-  }, []);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
 
-  // Scroll spy to highlight active section
-  useEffect(() => {
-    const handler = () => {
       const offsets = navItems.map(item => {
         const el = document.getElementById(item.id);
         if (!el) return { id: item.id, top: Number.POSITIVE_INFINITY };
         const rect = el.getBoundingClientRect();
-        return { id: item.id, top: Math.abs(rect.top - 100) };
+        return { id: item.id, top: Math.abs(rect.top - 120) };
       });
       offsets.sort((a, b) => a.top - b.top);
-      setActive(offsets[0].id);
+      if (offsets[0]) {
+        setActive(offsets[0].id);
+      }
     };
-    handler();
-    window.addEventListener('scroll', handler, { passive: true });
-    return () => window.removeEventListener('scroll', handler);
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const handleNavLinkClick = () => setIsOpen(false);
 
-  if (!mounted) {
-    return (
-      <header className="fixed w-full top-0 left-0 z-50 bg-primary-50/95 dark:bg-primary-400/95 shadow-md transition-all duration-300 ease-in-out">
-        <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
-          <a href="#home" className="group inline-flex flex-col leading-tight">
-            <span className="text-lg font-semibold tracking-tight text-primary-400 dark:text-primary-50">Tsion Bantegize</span>
-            <span className="text-[10px] uppercase tracking-[0.2em] text-primary-300 dark:text-primary-200">Front-End Developer</span>
-          </a>
-        </nav>
-      </header>
-    );
-  }
-
   return (
-    <header className="fixed w-full top-0 left-0 z-50 bg-primary-50/85 dark:bg-primary-400/85 backdrop-blur-xl shadow-lg">
-      <nav className="container mx-auto px-6 py-3 flex justify-between items-center">
-        {/* Brand */}
-        <a href="#home" className="group inline-flex flex-col leading-tight">
-          <span className="text-lg md:text-xl font-semibold tracking-tight text-primary-400 dark:text-primary-50 group-hover:text-primary-300 transition-colors">Tsion Bantegize</span>
-          <span className="text-[10px] md:text-[11px] uppercase tracking-[0.25em] text-primary-300 dark:text-primary-200">Front-End Developer</span>
-        </a>
+    <header className="fixed top-0 left-0 right-0 z-50 px-4 py-3 md:py-4 transition-all duration-300">
+      <div className={`mx-auto max-w-6xl rounded-full transition-all duration-300 ${
+        scrolled
+          ? 'bg-white/85 dark:bg-slate-900/85 backdrop-blur-xl border border-slate-200/80 dark:border-slate-800/80 shadow-lg shadow-slate-900/5 dark:shadow-black/40 px-5 py-2.5'
+          : 'bg-white/60 dark:bg-slate-900/50 backdrop-blur-md border border-slate-200/50 dark:border-slate-800/40 px-6 py-3'
+      }`}>
+        <div className="max-w-6xl mx-auto flex items-center justify-between">
+          
+          {/* Logo & Avatar */}
+          <a href="#home" className="flex items-center gap-3 group">
+            <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-teal-500 via-teal-600 to-emerald-500 flex items-center justify-center text-white font-extrabold text-base shadow-md shadow-teal-500/30 group-hover:scale-105 transition-transform">
+              TB
+            </div>
+            <div className="flex flex-col leading-tight">
+              <span className="text-base font-bold tracking-tight text-slate-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
+                Tsion Bantegize
+              </span>
+              <span className="text-[10px] uppercase tracking-[0.2em] font-semibold text-teal-600 dark:text-teal-400">
+                Full-Stack Engineer & UX Designer
+              </span>
+            </div>
+          </a>
 
-        {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-2">
-          {navItems.map(item => (
-            <a
-              key={item.id}
-              href={`#${item.id}`}
-              className={`relative px-4 py-2 rounded-full text-sm font-medium transition-colors duration-300 
-                ${active === item.id ? 'text-primary-50 bg-primary-300/80' : 'text-primary-400 hover:text-primary-300 hover:bg-primary-100'}`}
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex items-center gap-1 bg-slate-100/70 dark:bg-slate-800/60 p-1.5 rounded-full border border-slate-200/50 dark:border-slate-700/50">
+            {navItems.map(item => {
+              const isActive = active === item.id;
+              return (
+                <a
+                  key={item.id}
+                  href={`#${item.id}`}
+                  className={`px-4 py-2 rounded-full text-xs font-bold transition-all duration-200 ${
+                    isActive
+                      ? 'bg-gradient-to-r from-teal-500 to-emerald-500 text-white shadow-md shadow-teal-500/20'
+                      : 'text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-teal-400'
+                  }`}
+                >
+                  {item.label}
+                </a>
+              );
+            })}
+          </nav>
+
+          {/* Right Actions: Dark Mode + CTA */}
+          <div className="flex items-center gap-2">
+            <button
+              onClick={toggleDarkMode}
+              className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 grid place-items-center text-slate-700 dark:text-slate-200 hover:border-cyan-500 dark:hover:border-cyan-400 hover:scale-105 transition-all shadow-sm"
+              aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
             >
-              {item.label}
-              <span className={`absolute left-4 right-4 -bottom-0.5 h-0.5 rounded-full transition-all duration-300 ${active === item.id ? 'bg-primary-50 scale-x-100' : 'bg-transparent scale-x-0'}`}></span>
+              {darkMode ? (
+                <FiSun className="text-amber-400 text-lg animate-spin-slow" />
+              ) : (
+                <FiMoon className="text-slate-700 text-lg" />
+              )}
+            </button>
+
+            <a
+              href="#contact"
+              className="hidden lg:inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold bg-slate-900 text-white dark:bg-white dark:text-slate-900 hover:bg-cyan-600 dark:hover:bg-cyan-400 dark:hover:text-slate-950 transition-all shadow-sm"
+            >
+              Hire Me
             </a>
-          ))}
 
-          {/* Dark Mode Toggle */}
-          <button
-            onClick={toggleDarkMode}
-            className="ml-3 relative inline-flex items-center justify-center w-11 h-11 rounded-full bg-primary-100 dark:bg-primary-300/40 border border-primary-200/60 dark:border-primary-300/40 shadow-sm hover:shadow-md transition-all"
-            aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-          >
-            <div className={`transition-transform duration-500 ${darkMode ? 'rotate-180' : 'rotate-0'}`}>
-              {darkMode ? (
-                <FiSun className="text-primary-200 text-xl" />
-              ) : (
-                <FiMoon className="text-primary-400 text-xl" />
-              )}
-            </div>
-          </button>
+            {/* Mobile Menu Button */}
+            <button
+              onClick={toggleMenu}
+              className="md:hidden w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 grid place-items-center text-slate-800 dark:text-slate-200"
+              aria-label="Toggle menu"
+            >
+              {isOpen ? <FiX className="text-xl" /> : <FiMenu className="text-xl" />}
+            </button>
+          </div>
         </div>
 
-        {/* Mobile controls */}
-        <div className="md:hidden flex items-center gap-2">
-          <button
-            onClick={toggleDarkMode}
-            className="relative w-10 h-10 rounded-full bg-primary-100 dark:bg-primary-300/40 border border-primary-200/60 dark:border-primary-300/40 grid place-items-center"
-            aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
-          >
-            <div className={`transition-transform duration-500 ${darkMode ? 'rotate-180' : 'rotate-0'}`}>
-              {darkMode ? (
-                <FiSun className="text-primary-200 text-lg" />
-              ) : (
-                <FiMoon className="text-primary-400 text-lg" />
-              )}
-            </div>
-          </button>
-          <button
-            onClick={toggleMenu}
-            className="w-10 h-10 rounded-full text-primary-400 grid place-items-center hover:bg-primary-100"
-            aria-label="Toggle menu"
-          >
-            {isOpen ? <FiX className="text-xl" /> : <FiMenu className="text-xl" />}
-          </button>
-        </div>
-      </nav>
-
-      {/* Mobile Menu */}
-      <div className={`md:hidden absolute top-full left-0 w-full bg-primary-50/95 dark:bg-primary-400/95 backdrop-blur-md shadow-lg transition-all duration-300 ease-in-out ${isOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
-        <ul className="py-2">
-          {navItems.map(item => (
-            <li key={item.id}>
-              <a
-                href={`#${item.id}`}
-                onClick={handleNavLinkClick}
-                className="block px-6 py-3 text-primary-400 dark:text-primary-50 hover:bg-primary-100/70 dark:hover:bg-primary-300/20 transition-colors border-b border-primary-100/70 dark:border-primary-300/30"
-              >
-                {item.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+        {/* Mobile Menu Drawer */}
+        {isOpen && (
+          <div className="md:hidden mt-3 pt-3 border-t border-slate-200/80 dark:border-slate-800/80 px-2 pb-3 animate-fadeIn">
+            <nav className="flex flex-col space-y-1">
+              {navItems.map(item => {
+                const isActive = active === item.id;
+                return (
+                  <a
+                    key={item.id}
+                    href={`#${item.id}`}
+                    onClick={handleNavLinkClick}
+                    className={`px-4 py-2.5 rounded-xl text-sm font-semibold transition-all ${
+                      isActive
+                        ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white'
+                        : 'text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800'
+                    }`}
+                  >
+                    {item.label}
+                  </a>
+                );
+              })}
+            </nav>
+          </div>
+        )}
       </div>
     </header>
   );
