@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { FiCode, FiCpu, FiDatabase, FiLayers, FiLock, FiSmartphone, FiTerminal, FiZap, FiShield, FiCreditCard, FiPlay, FiPause, FiChevronLeft, FiChevronRight, FiSliders } from 'react-icons/fi';
-import { FaReact, FaVuejs, FaNodeJs, FaGitAlt, FaFigma, FaDocker, FaJsSquare, FaPython } from 'react-icons/fa';
+import { FiCode, FiCpu, FiDatabase, FiLayers, FiLock, FiTerminal, FiZap, FiShield, FiCreditCard, FiPlay, FiPause, FiChevronLeft, FiChevronRight, FiSliders } from 'react-icons/fi';
+import { FaReact, FaVuejs, FaNodeJs, FaGitAlt, FaFigma, FaDocker, FaJsSquare } from 'react-icons/fa';
 
 const categories = ['All', 'Fintech & Banking', 'Full-Stack Engineering', 'Architecture & DevOps', 'Tools & Design'];
 

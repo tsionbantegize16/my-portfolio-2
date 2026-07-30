@@ -1,5 +1,5 @@
 import React from 'react';
-import { FiCode, FiDatabase, FiLayers, FiPenTool, FiServer, FiArrowRight, FiCheckCircle, FiShield, FiCpu, FiCreditCard } from 'react-icons/fi';
+import { FiCode, FiDatabase, FiLayers, FiArrowRight, FiCheckCircle, FiCpu, FiCreditCard } from 'react-icons/fi';
 
 const servicesData = [
   {

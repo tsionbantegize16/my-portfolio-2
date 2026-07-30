@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FiBriefcase, FiCheckCircle, FiCpu, FiLayers, FiUser, FiZap, FiDownload, FiArrowRight, FiBookOpen } from 'react-icons/fi';
+import { FiBriefcase, FiUser, FiDownload, FiArrowRight, FiBookOpen } from 'react-icons/fi';
 
 const tabs = [
   { id: 'overview', label: 'Executive Profile' },
