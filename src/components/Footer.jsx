@@ -41,6 +41,7 @@ const Footer = () => {
             <a href="#skills" className="hover:text-teal-400 transition-colors">Skills</a>
             <a href="#services" className="hover:text-teal-400 transition-colors">Services</a>
             <a href="#projects" className="hover:text-teal-400 transition-colors">Projects</a>
+            <a href="#certificates" className="hover:text-teal-400 transition-colors">Certificates</a>
             <a href="#contact" className="hover:text-teal-400 transition-colors">Contact</a>
           </nav>
 

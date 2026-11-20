@@ -6,6 +6,7 @@ import About from './components/About';
 import Skills from './components/Skills';
 import Services from './components/Services';
 import Portfolio from './components/Portfolio';
+import Certificates from './components/Certificates';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import DarkModeIndicator from './components/DarkModeIndicator';
@@ -21,6 +22,7 @@ function App() {
           <Skills />
           <Services />
           <Portfolio />
+          <Certificates />
           <Contact />
         </main>
         <Footer />

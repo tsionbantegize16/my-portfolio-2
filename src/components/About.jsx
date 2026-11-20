@@ -212,7 +212,7 @@ const About = () => {
               <a href="#projects" className="btn-primary">
                 View Key Projects <FiArrowRight />
               </a>
-              <a href="/Tsion_Bantegize_CV.docx" download="Tsion_Bantegize_CV.docx" className="btn-secondary">
+              <a href="/Tsion_Bante_CV-.PDF" download="Tsion_Bante_CV-.PDF" className="btn-secondary">
                 <FiDownload className="text-teal-500" /> Printable Resume / CV
               </a>
             </div>

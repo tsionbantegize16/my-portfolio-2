@@ -23,7 +23,7 @@ const projectsData = [
     category: 'Fintech & Banking',
     shortDesc: 'Digital banking features engineered within Coopbank’s DX Valley Hub.',
     longDesc: 'Engineered digital banking features, open banking API portals, and prototyping data-driven financial tools aimed at driving digital banking adoption across Ethiopia.',
-    link: 'https://developers.coopbankoromiasc.com/',
+    link: 'https://new-coop-api-new.vercel.app/',
     github: 'https://github.com/tsionbantegize',
     tags: ['Fintech', 'DX Valley', 'React', 'Banking API', 'Supabase'],
     featured: true,

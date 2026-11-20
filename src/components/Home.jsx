@@ -146,7 +146,7 @@ const Home = () => {
             <a href="#projects" className="btn-primary w-full sm:w-auto">
               Explore Projects <FiArrowRight className="text-lg" />
             </a>
-            <a href="/Tsion_Bantegize_CV.docx" download="Tsion_Bantegize_CV.docx" className="btn-secondary w-full sm:w-auto">
+            <a href="/Tsion_Bante_CV-.PDF" download="Tsion_Bante_CV-.PDF" className="btn-secondary w-full sm:w-auto">
               <FiDownload className="text-lg text-teal-600 dark:text-teal-400" /> Printable Resume / CV
             </a>
           </div>
