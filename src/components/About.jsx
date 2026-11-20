@@ -1,10 +1,20 @@
 import React, { useState } from 'react';
-import { FiBriefcase, FiUser, FiDownload, FiArrowRight, FiBookOpen } from 'react-icons/fi';
+import {
+  FiBriefcase,
+  FiUser,
+  FiDownload,
+  FiArrowRight,
+  FiBookOpen,
+  FiAward,
+  FiCheckCircle,
+  FiLayers
+} from 'react-icons/fi';
 
 const tabs = [
   { id: 'overview', label: 'Executive Profile' },
-  { id: 'experience', label: 'Work Experience' },
-  { id: 'education', label: 'Education & Credentials' },
+  { id: 'experience', label: 'Career & Experience' },
+  { id: 'engineering', label: 'Notable Engineering' },
+  { id: 'education', label: 'Education & Honors' },
 ];
 
 const About = () => {
@@ -20,10 +30,10 @@ const About = () => {
         
         {/* Section Heading */}
         <div className="heading text-center mb-16 space-y-2">
-          <span>Full-Stack Engineer & UX Designer</span>
+          <span>Full-Stack Engineer & Fintech Innovator</span>
           <h2>About Tsion Bantegize</h2>
           <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-base">
-            Shapes user journeys, interface systems, and the frontend craft behind every KAB Digital Solution build.
+            Software Engineer specializing in digital banking, inclusive fintech architectures, and enterprise innovation systems.
           </p>
         </div>
 
@@ -49,15 +59,15 @@ const About = () => {
             {/* Quick Metrics */}
             <div className="w-full max-w-sm grid grid-cols-2 gap-3">
               <div className="p-4 rounded-2xl glass-card text-center border border-teal-500/20">
-                <div className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">Degree</div>
-                <div className="text-sm font-extrabold text-slate-900 dark:text-white mt-1">B.S. Software Eng.</div>
+                <div className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">Education</div>
+                <div className="text-sm font-extrabold text-slate-900 dark:text-white mt-1">B.Sc. Software Eng.</div>
                 <div className="text-[11px] text-teal-600 dark:text-teal-400 font-semibold">Bahir Dar Univ ('26)</div>
               </div>
               
               <div className="p-4 rounded-2xl glass-card text-center border border-teal-500/20">
-                <div className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">Specialization</div>
+                <div className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">Focus</div>
                 <div className="text-sm font-extrabold text-slate-900 dark:text-white mt-1">Fintech & Banking</div>
-                <div className="text-[11px] text-teal-600 dark:text-teal-400 font-semibold">Enterprise Architecture</div>
+                <div className="text-[11px] text-teal-600 dark:text-teal-400 font-semibold">Inclusive Architectures</div>
               </div>
             </div>
           </div>
@@ -65,13 +75,13 @@ const About = () => {
           {/* Right Column: Interactive Profile Tabs */}
           <div className="lg:col-span-7 space-y-6 animate-slideInRight">
             
-            {/* Tabs */}
-            <div className="flex items-center gap-1.5 p-1.5 rounded-2xl bg-slate-200/60 dark:bg-slate-900/80 border border-slate-300/50 dark:border-slate-800 max-w-lg">
+            {/* Tabs Bar */}
+            <div className="flex flex-wrap sm:flex-nowrap items-center gap-1.5 p-1.5 rounded-2xl bg-slate-200/60 dark:bg-slate-900/80 border border-slate-300/50 dark:border-slate-800">
               {tabs.map((tab) => (
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 ${
+                  className={`flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 whitespace-nowrap ${
                     activeTab === tab.id
                       ? 'bg-white dark:bg-slate-800 text-teal-600 dark:text-teal-400 shadow-md'
                       : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
@@ -83,9 +93,9 @@ const About = () => {
             </div>
 
             {/* Tab Display Panel */}
-            <div className="glass-card p-6 sm:p-8 min-h-[380px]">
+            <div className="glass-card p-6 sm:p-8 min-h-[420px]">
               
-              {/* Executive Profile Tab */}
+              {/* 1. Executive Profile Tab */}
               {activeTab === 'overview' && (
                 <div className="space-y-4 animate-fadeIn">
                   <h3 className="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
@@ -93,108 +103,191 @@ const About = () => {
                   </h3>
                   
                   <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
-                    I am a <strong className="text-slate-900 dark:text-white">Full-Stack Engineer & UX Designer</strong> who shapes user journeys, interface systems, and the frontend craft behind every KAB Digital Solution build.
+                    I am a <strong className="text-slate-900 dark:text-white">Software Engineer & Fintech Innovator</strong> graduating with a B.Sc. in Software Engineering from <strong className="text-teal-600 dark:text-teal-400">Bahir Dar University (2026)</strong>. My work focuses on building robust offline-first digital banking architectures, scalable enterprise platforms, and high-impact fintech applications.
                   </p>
                   
                   <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
-                    Beyond founding <strong className="text-slate-900 dark:text-white">KAB Digital Solution</strong>, my professional footprint spans leading technology innovators and financial institutions in Ethiopia, including <strong className="text-teal-600 dark:text-teal-400">EagleLion System Technology, Cooperative Bank of Oromia (DX Valley Hub), Minab IT Solution, and BiT-CDC</strong>.
+                    My engineering and ecosystem background spans full-stack software development at <strong className="text-slate-900 dark:text-white">Cooperative Bank of Oromia (DX Valley Hub)</strong> and <strong className="text-slate-900 dark:text-white">EagleLion System Technology</strong>, incubation workflow coordination at <strong className="text-teal-600 dark:text-teal-400">BiTec</strong>, and serving as a <strong className="text-slate-900 dark:text-white">National Youth Delegate</strong> representing Ethiopia at the Africa Food Systems Forum in Kigali, Rwanda.
                   </p>
 
-                  <div className="pt-3 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div className="p-3.5 rounded-xl bg-slate-100/70 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-xs">
-                      <div className="font-bold text-slate-900 dark:text-white mb-1">🏛️ Digital Banking & Fintech</div>
-                      <div className="text-slate-600 dark:text-slate-400">Digital lending workflows, agency banking & payment gateway integrations.</div>
+                      <div className="font-bold text-slate-900 dark:text-white mb-1">🏛️ Digital Banking & Inclusion</div>
+                      <div className="text-slate-600 dark:text-slate-400">Core SACCO banking, USSD/IVR workflows, and open banking API portal infrastructure.</div>
                     </div>
                     
                     <div className="p-3.5 rounded-xl bg-slate-100/70 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-xs">
-                      <div className="font-bold text-slate-900 dark:text-white mb-1">⚡ Enterprise Architecture</div>
-                      <div className="text-slate-600 dark:text-slate-400">High-volume full-stack APIs, microservices & system resilience.</div>
+                      <div className="font-bold text-slate-900 dark:text-white mb-1">🌍 Policy & Ecosystem Leadership</div>
+                      <div className="text-slate-600 dark:text-slate-400">Startup incubator management, national delegation, and regional development initiatives with UNDP.</div>
                     </div>
                   </div>
                 </div>
               )}
 
-              {/* Detailed Work Experience Tab */}
+              {/* 2. Detailed Career & Experience Tab */}
               {activeTab === 'experience' && (
-                <div className="space-y-6 animate-fadeIn">
+                <div className="space-y-4 animate-fadeIn">
                   <h3 className="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                    <FiBriefcase className="text-teal-500" /> Key Professional Experience
+                    <FiBriefcase className="text-teal-500" /> Career & Experience
                   </h3>
 
-                  <div className="space-y-5 text-sm">
-                    {/* KAB Digital Solution */}
-                    <div className="p-4 rounded-xl bg-slate-100/80 dark:bg-slate-800/70 border-l-4 border-teal-500 space-y-1.5">
-                      <div className="flex items-center justify-between flex-wrap gap-2">
-                        <h4 className="font-bold text-slate-900 dark:text-white">Founder & Lead Architect</h4>
-                        <span className="text-xs font-semibold text-teal-600 dark:text-teal-400 bg-teal-50 dark:bg-teal-950 px-2 py-0.5 rounded">KAB Digital Solution</span>
+                  <div className="space-y-3.5 text-xs sm:text-sm">
+                    {/* Coopbank DX Valley */}
+                    <div className="p-3.5 rounded-xl bg-slate-100/80 dark:bg-slate-800/70 border-l-4 border-emerald-500 space-y-1">
+                      <div className="flex items-center justify-between flex-wrap gap-1.5">
+                        <h4 className="font-bold text-slate-900 dark:text-white">Software Engineering Intern</h4>
+                        <span className="text-[11px] font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950 px-2 py-0.5 rounded">Cooperative Bank of Oromia (DX Valley)</span>
                       </div>
                       <p className="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">
-                        Lead the overall architecture and engineering of resilient digital platforms. Designed and engineered the <strong>Innovation Incubation Management System (IIMS)</strong>, facilitating structured innovation workflows and enterprise incubation tracking.
+                        Engineered digital banking features, open banking API portals, and prototyping tools aimed at accelerating financial inclusion and open banking across Ethiopia.
                       </p>
                     </div>
 
                     {/* EagleLion System Technology */}
-                    <div className="p-4 rounded-xl bg-slate-100/80 dark:bg-slate-800/70 border-l-4 border-brand-500 space-y-1.5">
-                      <div className="flex items-center justify-between flex-wrap gap-2">
-                        <h4 className="font-bold text-slate-900 dark:text-white">Software Engineer / Technical Collaborator</h4>
-                        <span className="text-xs font-semibold text-teal-700 dark:text-teal-300 bg-teal-50 dark:bg-teal-950 px-2 py-0.5 rounded">EagleLion System Technology</span>
+                    <div className="p-3.5 rounded-xl bg-slate-100/80 dark:bg-slate-800/70 border-l-4 border-teal-500 space-y-1">
+                      <div className="flex items-center justify-between flex-wrap gap-1.5">
+                        <h4 className="font-bold text-slate-900 dark:text-white">Full-Stack Software Engineering Intern</h4>
+                        <span className="text-[11px] font-semibold text-teal-600 dark:text-teal-400 bg-teal-50 dark:bg-teal-950 px-2 py-0.5 rounded">EagleLion System Technology (Oct 2025)</span>
                       </div>
                       <p className="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">
-                        Contributed to full-stack engineering initiatives for mobile super apps and eco-tech platforms, including <strong>Green Loop</strong>—a mobile recycling app connecting waste to worth with nearby center detection.
+                        Built full-stack software systems and eco-tech mobile initiatives, contributing to <strong>GreenLoop</strong>—a mobile recycling application engineered with Flutter, Clean Architecture, and AI-assisted waste categorization.
                       </p>
                     </div>
 
-                    {/* Cooperative Bank of Oromia */}
-                    <div className="p-4 rounded-xl bg-slate-100/80 dark:bg-slate-800/70 border-l-4 border-emerald-500 space-y-1.5">
-                      <div className="flex items-center justify-between flex-wrap gap-2">
-                        <h4 className="font-bold text-slate-900 dark:text-white">Developer & Resident Innovator</h4>
-                        <span className="text-xs font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950 px-2 py-0.5 rounded">Coopbank (DX Valley Hub)</span>
+                    {/* BiTec Incubation & Ecosystem Operations */}
+                    <div className="p-3.5 rounded-xl bg-slate-100/80 dark:bg-slate-800/70 border-l-4 border-cyan-500 space-y-1">
+                      <div className="flex items-center justify-between flex-wrap gap-1.5">
+                        <h4 className="font-bold text-slate-900 dark:text-white">Incubation & Ecosystem Operations Coordinator</h4>
+                        <span className="text-[11px] font-semibold text-cyan-600 dark:text-cyan-400 bg-cyan-50 dark:bg-cyan-950 px-2 py-0.5 rounded">Bahir Dar University (BiTec)</span>
                       </div>
                       <p className="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">
-                        Engineered digital banking features and fintech solutions within Coopbank’s official technology incubation and innovation center (DX Valley). Participated in prototyping data-driven financial tools to drive digital banking adoption.
+                        Coordinated startup intake, tracking, and incubation workflows at Bahir Dar University’s Business Incubation and Techno-Entrepreneurship Center (BiTec), and developed the Innovation Incubation Management System (IIMS).
                       </p>
                     </div>
 
-                    {/* Minab IT Solution & BiT-CDC */}
-                    <div className="p-4 rounded-xl bg-slate-100/80 dark:bg-slate-800/70 border-l-4 border-indigo-500 space-y-1.5">
-                      <div className="flex items-center justify-between flex-wrap gap-2">
-                        <h4 className="font-bold text-slate-900 dark:text-white">Full-Stack Engineering Fellow</h4>
-                        <span className="text-xs font-semibold text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950 px-2 py-0.5 rounded">Minab IT Solution & BiT-CDC</span>
+                    {/* National & Policy Representation */}
+                    <div className="p-3.5 rounded-xl bg-slate-100/80 dark:bg-slate-800/70 border-l-4 border-purple-500 space-y-1">
+                      <div className="flex items-center justify-between flex-wrap gap-1.5">
+                        <h4 className="font-bold text-slate-900 dark:text-white">National Youth Delegate — Ethiopia</h4>
+                        <span className="text-[11px] font-semibold text-purple-600 dark:text-purple-400 bg-purple-50 dark:bg-purple-950 px-2 py-0.5 rounded">Africa Food Systems Forum (Kigali, Sep 2026)</span>
                       </div>
                       <p className="text-slate-600 dark:text-slate-300 text-xs leading-relaxed">
-                        Completed advanced full-stack software development tracks, mastering clean code practices, system design, and database optimizations. Developed web prototypes and competed in innovation hackathons.
+                        Represented Ethiopia at the Africa Food Systems Forum in Kigali, Rwanda, and actively engaged in high-level policy events and innovation forums at the <strong>UNDP Regional Service Centre for Africa</strong> in Addis Ababa.
                       </p>
                     </div>
                   </div>
                 </div>
               )}
 
-              {/* Education & Credentials Tab */}
-              {activeTab === 'education' && (
-                <div className="space-y-6 animate-fadeIn">
+              {/* 3. Notable Engineering & Technical Stack Tab */}
+              {activeTab === 'engineering' && (
+                <div className="space-y-4 animate-fadeIn">
                   <h3 className="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                    <FiBookOpen className="text-cyan-500" /> Education & Credentials
+                    <FiLayers className="text-teal-500" /> Notable Engineering & Tech Stack
                   </h3>
 
-                  <div className="space-y-4 text-sm">
-                    <div className="p-4 rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50">
-                      <div className="font-bold text-slate-900 dark:text-white text-base">B.S. in Software Engineering</div>
-                      <div className="text-cyan-600 dark:text-cyan-400 font-semibold text-xs mt-0.5">Bahir Dar University (Expected Graduation: 2026)</div>
-                      <p className="text-slate-600 dark:text-slate-400 text-xs mt-2">
-                        Core curriculum: Software Architecture, Algorithms & Data Structures, Database Systems, Distributed Computing, Agile Product Management.
+                  <div className="space-y-3 text-xs">
+                    {/* Key Systems Grid */}
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                      <div className="p-3 rounded-xl bg-slate-100/80 dark:bg-slate-800/70 border border-slate-200/70 dark:border-slate-700/70">
+                        <div className="font-bold text-slate-900 dark:text-white flex items-center gap-1.5 text-xs">
+                          <FiCheckCircle className="text-teal-500 shrink-0" />
+                          <span>Qershi Link (700K ETB Grant)</span>
+                        </div>
+                        <p className="text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">
+                          Offline-first core banking platform for SACCOs with USSD and IVR support for farmers and rural communities.
+                        </p>
+                      </div>
+
+                      <div className="p-3 rounded-xl bg-slate-100/80 dark:bg-slate-800/70 border border-slate-200/70 dark:border-slate-700/70">
+                        <div className="font-bold text-slate-900 dark:text-white flex items-center gap-1.5 text-xs">
+                          <FiCheckCircle className="text-teal-500 shrink-0" />
+                          <span>GreenLoop Eco-Tech App</span>
+                        </div>
+                        <p className="text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">
+                          Mobile recycling platform built with Flutter, Clean Architecture, and AI-assisted object categorization.
+                        </p>
+                      </div>
+
+                      <div className="p-3 rounded-xl bg-slate-100/80 dark:bg-slate-800/70 border border-slate-200/70 dark:border-slate-700/70">
+                        <div className="font-bold text-slate-900 dark:text-white flex items-center gap-1.5 text-xs">
+                          <FiCheckCircle className="text-teal-500 shrink-0" />
+                          <span>Enterprise Platforms & ERPs</span>
+                        </div>
+                        <p className="text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">
+                          BiTec IIMS portal, BDA ERP, GATO ERP, IPv6 Ethiopia Initiative portal (Rasbyte), and Coopbank API portal.
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Technical Stack Pills */}
+                    <div className="pt-2 space-y-2 border-t border-slate-200/80 dark:border-slate-800">
+                      <div>
+                        <span className="font-bold text-slate-900 dark:text-white text-[11px] uppercase tracking-wider">Frontend & Mobile: </span>
+                        <span className="text-slate-600 dark:text-slate-400">React, Next.js, Vue.js, Nuxt 3, TypeScript, JavaScript, Tailwind CSS, Flutter, React Native, Figma.</span>
+                      </div>
+                      <div>
+                        <span className="font-bold text-slate-900 dark:text-white text-[11px] uppercase tracking-wider">Backend & Databases: </span>
+                        <span className="text-slate-600 dark:text-slate-400">Node.js, Express, Spring Boot, PostgreSQL, Prisma, Supabase, RESTful APIs.</span>
+                      </div>
+                      <div>
+                        <span className="font-bold text-slate-900 dark:text-white text-[11px] uppercase tracking-wider">DevOps & Cloud: </span>
+                        <span className="text-slate-600 dark:text-slate-400">Docker, Git/GitHub (tsionbantegize16), Postman, Vercel, Railway.</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* 4. Education, Honors & Programs Tab */}
+              {activeTab === 'education' && (
+                <div className="space-y-4 animate-fadeIn">
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                    <FiBookOpen className="text-teal-500" /> Education, Honors & Fellowships
+                  </h3>
+
+                  <div className="space-y-3 text-xs">
+                    {/* B.Sc Degree */}
+                    <div className="p-3.5 rounded-xl border border-teal-500/30 bg-teal-50/50 dark:bg-teal-950/30">
+                      <div className="flex items-center justify-between flex-wrap gap-1">
+                        <span className="font-bold text-slate-900 dark:text-white text-xs sm:text-sm">B.Sc. in Software Engineering</span>
+                        <span className="text-[11px] font-semibold text-teal-600 dark:text-teal-400">Bahir Dar University (Graduation: 2026)</span>
+                      </div>
+                      <p className="text-slate-600 dark:text-slate-300 text-xs mt-1">
+                        Awarded <strong>3rd Place</strong> for final-year software engineering capstone project (2026).
                       </p>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                      <div className="p-4 rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50">
-                        <div className="font-bold text-slate-900 dark:text-white text-xs">Full-Stack Development Cert.</div>
-                        <div className="text-slate-600 dark:text-slate-400 text-[11px] mt-1">Minab IT Solution & BiT-CDC</div>
-                      </div>
+                    {/* Accelerators & Bootcamps */}
+                    <div className="p-3.5 rounded-xl border border-slate-200/80 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 space-y-1.5">
+                      <div className="font-bold text-slate-900 dark:text-white text-xs uppercase tracking-wider">Accelerators & Bootcamps</div>
+                      <ul className="space-y-1 text-slate-600 dark:text-slate-300 text-xs">
+                        <li>• <strong>FinWise Acceleration Bootcamp:</strong> Entrepreneurship Development Institute & UNDP (2026).</li>
+                        <li>• <strong>Full Stack & Mobile Development Training:</strong> Minab IT Solution & BiT-CDC.</li>
+                        <li>• <strong>Agribusiness Innovation & Climate Change:</strong> GIZ self-employment intervention (2024).</li>
+                        <li>• <strong>Responsive Web Design Certification:</strong> freeCodeCamp (2025).</li>
+                      </ul>
+                    </div>
 
-                      <div className="p-4 rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50">
-                        <div className="font-bold text-slate-900 dark:text-white text-xs">Advanced Software Engineering</div>
-                        <div className="text-slate-600 dark:text-slate-400 text-[11px] mt-1">Specialized Industry Track</div>
+                    {/* Key Honors */}
+                    <div className="p-3.5 rounded-xl border border-amber-500/30 bg-amber-50/40 dark:bg-amber-950/20 space-y-1.5">
+                      <div className="font-bold text-amber-700 dark:text-amber-400 text-xs uppercase tracking-wider flex items-center gap-1.5">
+                        <FiAward className="text-sm" /> Prestigious Awards & Honors
                       </div>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-[11px] text-slate-700 dark:text-slate-300">
+                        <div>🏆 <strong>1st Place</strong> — WTM Addis IWD Hackathon (2025)</div>
+                        <div>🥇 <strong>1st Place</strong> — BRUH Women Startup Competition (2024)</div>
+                        <div>🎖️ <strong>Recognition</strong> — BiTec Digital Innovation Hackathon (2025)</div>
+                        <div>🥉 <strong>3rd Place</strong> — BDU Final-Year Software Engineering (2026)</div>
+                      </div>
+                    </div>
+
+                    {/* Program Applications */}
+                    <div className="p-3 rounded-xl border border-slate-200/80 dark:border-slate-800 bg-slate-100/60 dark:bg-slate-800/50">
+                      <span className="font-bold text-slate-900 dark:text-white text-[11px] uppercase tracking-wider">Leadership & Fellowships: </span>
+                      <span className="text-slate-600 dark:text-slate-400 text-[11px]">
+                        Obama Foundation Leaders, ITU Gender Champions (AI for Good 2027), AfSA & AESPP Earth Observation AI, e-AGRIPRENEUR Cohort 1, Tsehai Young Leaders, CRPP Partnership Forum 2027, WomHub / AIF, Coding Ladies Africa, MASAF/ACN.
+                      </span>
                     </div>
                   </div>
                 </div>
