@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FiExternalLink, FiEye, FiX } from 'react-icons/fi';
 
-const categories = ['All', 'Fintech & Banking', 'Enterprise & Innovation', 'Mobile Apps & Tech', 'Community'];
+const categories = ['All', 'Fintech & Banking', 'Enterprise & Innovation', 'Mobile Apps & Tech', 'Creative & Web', 'Community'];
 
 const projectsData = [
   {
@@ -38,6 +38,42 @@ const projectsData = [
     link: 'https://github.com/tsionbantegize',
     github: 'https://github.com/tsionbantegize',
     tags: ['Green Loop', 'EagleLion', 'Mobile App', 'Supabase', 'React Native'],
+    featured: true,
+  },
+  {
+    id: 7,
+    img: '/secureaiafrica.png',
+    title: 'Secure AI in Africa (SAI²) Initiative',
+    category: 'Enterprise & Innovation',
+    shortDesc: 'Advancing AI security, safety standards, and tech capacity building across Africa.',
+    longDesc: 'Architected and built the official web platform for Secure AI in Africa (SAI²)—a pan-African initiative dedicated to advancing AI cybersecurity, promoting awareness, delivering targeted developer training, and fostering local AI engineering capacity.',
+    link: 'https://secureaiafrica.africa/',
+    github: 'https://github.com/tsionbantegize',
+    tags: ['AI Security', 'React', 'Next.js', 'Cybersecurity', 'Tailwind'],
+    featured: true,
+  },
+  {
+    id: 8,
+    img: '/qershi-link.png',
+    title: 'Qershi Link — Microfinance & SACCO Platform',
+    category: 'Fintech & Banking',
+    shortDesc: 'SACCO microfinance management portal with loan portfolios & USSD banking integration.',
+    longDesc: 'Engineered Qershi Link—a comprehensive digital microfinance and SACCO management system featuring real-time loan tracking, repayment analytics, member savings portfolios, and integrated USSD mobile banking workflows for seamless financial inclusion.',
+    link: 'https://github.com/tsionbantegize',
+    github: 'https://github.com/tsionbantegize',
+    tags: ['Fintech', 'SACCO', 'Microfinance', 'USSD Banking', 'React', 'Analytics'],
+    featured: true,
+  },
+  {
+    id: 9,
+    img: '/fashion-promotion-landing-page.png',
+    title: 'Fashion Design & Promotion Showcase',
+    category: 'Creative & Web',
+    shortDesc: 'High-end beauty & fashion design promotional platform with interactive lookbooks.',
+    longDesc: 'Designed and engineered an aesthetic, modern fashion & beauty product showcase featuring interactive collections, lookbook galleries, and responsive product storytelling for high-end fashion branding.',
+    link: 'https://fashion-design-web-app-sample.vercel.app/',
+    github: 'https://github.com/tsionbantegize',
+    tags: ['Fashion Tech', 'React', 'Tailwind', 'UI/UX Design', 'Vercel'],
     featured: true,
   },
   {

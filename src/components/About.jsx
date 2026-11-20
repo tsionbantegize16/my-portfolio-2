@@ -43,11 +43,6 @@ const About = () => {
                     e.target.src = '/photo.jpg';
                   }}
                 />
-                
-                {/* Floating Highlight Badge */}
-                <div className="absolute top-4 right-4 px-3.5 py-1.5 rounded-full bg-white/90 dark:bg-slate-900/90 backdrop-blur border border-slate-200/80 dark:border-slate-800 text-xs font-extrabold text-teal-600 dark:text-teal-400 shadow-md">
-                  🚀 Founder @ KAB Digital
-                </div>
               </div>
             </div>
 
