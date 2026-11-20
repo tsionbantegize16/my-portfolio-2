@@ -1,52 +1,98 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { FiCode, FiCpu, FiDatabase, FiLayers, FiLock, FiTerminal, FiZap, FiShield, FiCreditCard, FiPlay, FiPause, FiChevronLeft, FiChevronRight, FiSliders } from 'react-icons/fi';
-import { FaReact, FaVuejs, FaNodeJs, FaGitAlt, FaFigma, FaDocker, FaJsSquare } from 'react-icons/fa';
+import {
+  FiCode,
+  FiCpu,
+  FiDatabase,
+  FiLock,
+  FiZap,
+  FiShield,
+  FiCreditCard,
+  FiPlay,
+  FiPause,
+  FiChevronLeft,
+  FiChevronRight,
+  FiSliders,
+  FiGlobe
+} from 'react-icons/fi';
+import {
+  FaReact,
+  FaVuejs,
+  FaNodeJs,
+  FaGitAlt,
+  FaFigma,
+  FaDocker
+} from 'react-icons/fa';
+import {
+  SiFlutter,
+  SiPostgresql,
+  SiPrisma,
+  SiSupabase,
+  SiSpringboot,
+  SiTailwindcss,
+  SiTypescript,
+  SiPostman,
+  SiVercel
+} from 'react-icons/si';
 
-const categories = ['All', 'Fintech & Banking', 'Full-Stack Engineering', 'Architecture & DevOps', 'Tools & Design'];
+const categories = [
+  'All',
+  'Fintech & Banking',
+  'Frontend & Mobile',
+  'Backend & Databases',
+  'DevOps & Tools'
+];
 
 const skillsData = [
-  { name: 'Payment Gateways & APIs', category: 'Fintech & Banking', level: 92, icon: FiCreditCard, color: '#14b8a6' },
-  { name: 'Digital Lending Workflows', category: 'Fintech & Banking', level: 90, icon: FiZap, color: '#0d9488' },
-  { name: 'Agency Banking Systems', category: 'Fintech & Banking', level: 88, icon: FiShield, color: '#10B981' },
-  { name: 'Secure Financial Processing', category: 'Fintech & Banking', level: 90, icon: FiLock, color: '#22a0a2' },
+  // Fintech & Banking
+  { name: 'Core SACCO & Offline Banking', category: 'Fintech & Banking', level: 95, icon: FiCreditCard, color: '#14b8a6' },
+  { name: 'USSD & IVR Mobile Banking', category: 'Fintech & Banking', level: 92, icon: FiZap, color: '#0d9488' },
+  { name: 'Open Banking & API Portals', category: 'Fintech & Banking', level: 94, icon: FiShield, color: '#10b981' },
+  { name: 'Financial Security & Compliance', category: 'Fintech & Banking', level: 90, icon: FiLock, color: '#22a0a2' },
 
-  { name: 'React.js & Next.js', category: 'Full-Stack Engineering', level: 94, icon: FaReact, color: '#14b8a6' },
-  { name: 'Vue.js & Nuxt.js', category: 'Full-Stack Engineering', level: 90, icon: FaVuejs, color: '#10B981' },
-  { name: 'Node.js & Express APIs', category: 'Full-Stack Engineering', level: 88, icon: FaNodeJs, color: '#0d9488' },
-  { name: 'TypeScript & JavaScript', category: 'Full-Stack Engineering', level: 92, icon: FaJsSquare, color: '#F7DF1E' },
-  { name: 'Tailwind & Design Systems', category: 'Full-Stack Engineering', level: 95, icon: FiLayers, color: '#14b8a6' },
-  { name: 'GraphQL & REST APIs', category: 'Full-Stack Engineering', level: 88, icon: FiDatabase, color: '#22a0a2' },
-  { name: 'PostgreSQL & Hasura', category: 'Full-Stack Engineering', level: 85, icon: FiDatabase, color: '#0f766e' },
+  // Frontend & Mobile
+  { name: 'React.js & Next.js', category: 'Frontend & Mobile', level: 95, icon: FaReact, color: '#14b8a6' },
+  { name: 'Flutter & Clean Architecture', category: 'Frontend & Mobile', level: 90, icon: SiFlutter, color: '#02569B' },
+  { name: 'Vue.js & Nuxt 3', category: 'Frontend & Mobile', level: 88, icon: FaVuejs, color: '#10b981' },
+  { name: 'TypeScript & JavaScript', category: 'Frontend & Mobile', level: 93, icon: SiTypescript, color: '#3178C6' },
+  { name: 'Tailwind CSS & Design Systems', category: 'Frontend & Mobile', level: 95, icon: SiTailwindcss, color: '#06B6D4' },
+  { name: 'React Native Mobile', category: 'Frontend & Mobile', level: 86, icon: FaReact, color: '#61DAFB' },
 
-  { name: 'Enterprise Architecture', category: 'Architecture & DevOps', level: 88, icon: FiCpu, color: '#14b8a6' },
-  { name: 'Microservices Systems', category: 'Architecture & DevOps', level: 85, icon: FiLayers, color: '#0d9488' },
-  { name: 'Docker & Containers', category: 'Architecture & DevOps', level: 75, icon: FaDocker, color: '#22a0a2' },
+  // Backend & Databases
+  { name: 'Node.js & Express.js', category: 'Backend & Databases', level: 90, icon: FaNodeJs, color: '#0d9488' },
+  { name: 'Spring Boot & Microservices', category: 'Backend & Databases', level: 85, icon: SiSpringboot, color: '#6DB33F' },
+  { name: 'PostgreSQL & Relational Data', category: 'Backend & Databases', level: 90, icon: SiPostgresql, color: '#336791' },
+  { name: 'Prisma ORM & Schema', category: 'Backend & Databases', level: 90, icon: SiPrisma, color: '#2D3748' },
+  { name: 'Supabase BaaS & Auth', category: 'Backend & Databases', level: 92, icon: SiSupabase, color: '#3ECF8E' },
+  { name: 'RESTful API Architecture', category: 'Backend & Databases', level: 94, icon: FiDatabase, color: '#14b8a6' },
 
-  { name: 'Figma & UI Systems', category: 'Tools & Design', level: 90, icon: FaFigma, color: '#F24E1E' },
-  { name: 'Git & GitHub Workflows', category: 'Tools & Design', level: 92, icon: FaGitAlt, color: '#F05032' },
-  { name: 'Postman API Testing', category: 'Tools & Design', level: 88, icon: FiTerminal, color: '#14b8a6' },
+  // DevOps & Tools
+  { name: 'Docker & Containerization', category: 'DevOps & Tools', level: 82, icon: FaDocker, color: '#2496ED' },
+  { name: 'Git & GitHub Workflows', category: 'DevOps & Tools', level: 94, icon: FaGitAlt, color: '#F05032' },
+  { name: 'Postman API Testing', category: 'DevOps & Tools', level: 90, icon: SiPostman, color: '#FF6C37' },
+  { name: 'Figma UI/UX Systems', category: 'DevOps & Tools', level: 92, icon: FaFigma, color: '#F24E1E' },
+  { name: 'Vercel & Cloud Deployments', category: 'DevOps & Tools', level: 90, icon: SiVercel, color: '#14b8a6' },
 ];
 
 const skillHighlights = [
   {
-    title: 'Fintech & Banking Infrastructure',
-    description: 'Digital lending rails, payment gateway integrations, agency banking interfaces, and high-volume financial data pipelines.',
+    title: 'Fintech & Digital Banking Systems',
+    description: 'Offline-first core banking for SACCOs (Qershi Link), USSD & IVR mobile workflows, payment rails, and Coopbank open banking APIs.',
     icon: FiCreditCard,
   },
   {
-    title: 'Full-Stack Web & Mobile Engineering',
-    description: 'Scalable frontend components (React/Next.js/Vue) paired with secure backend APIs (Node.js/GraphQL/PostgreSQL).',
+    title: 'Frontend & Cross-Platform Mobile',
+    description: 'Production architectures in React, Next.js, Vue, Nuxt 3, and Flutter with Clean Architecture and accessible design systems.',
     icon: FiCode,
   },
   {
-    title: 'Enterprise Architecture & Resilience',
-    description: 'High-availability system design, Innovation Incubation Management System (IIMS), and containerized microservices.',
+    title: 'Backend, Databases & APIs',
+    description: 'Resilient services and data pipelines using Node.js, Spring Boot, PostgreSQL, Prisma, Supabase, and RESTful architectures.',
     icon: FiCpu,
   },
   {
-    title: 'Tech Entrepreneurship & Strategy',
-    description: 'Founding KAB Digital Solution, driving innovation at Coopbank DX Valley, and leading digital transformation.',
-    icon: FiZap,
+    title: 'Ecosystem & National Leadership',
+    description: 'Startup incubation operations at BiTec, national policy representation in Kigali, Rwanda, and enterprise platforms (ERPs, IPv6).',
+    icon: FiGlobe,
   },
 ];
 
@@ -57,7 +103,7 @@ const Skills = () => {
 
   const filteredSkills = activeCategory === 'All'
     ? skillsData
-    : skillsData.filter(s => s.category === activeCategory);
+    : skillsData.filter((s) => s.category === activeCategory);
 
   // Ultra-smooth classical auto-scroll loop
   useEffect(() => {
@@ -102,7 +148,7 @@ const Skills = () => {
           <span>Expertise & Competencies</span>
           <h2>Technical Skills & Stack</h2>
           <p className="text-slate-600 dark:text-slate-400 max-w-xl mx-auto text-base">
-            Interactive showcase of technical tools, fintech platforms, and enterprise software frameworks.
+            Comprehensive toolkit spanning digital banking rails, modern frontend & mobile stacks, scalable backends, and cloud DevOps.
           </p>
         </div>
 
@@ -141,7 +187,7 @@ const Skills = () => {
             ))}
           </div>
 
-          {/* Minimalist Classical Controls */}
+          {/* Minimalist Controls */}
           <div className="flex items-center gap-3">
             <span className="text-xs font-semibold text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
               <FiSliders className="text-teal-500" /> Hover to Pause
@@ -152,6 +198,7 @@ const Skills = () => {
                 onClick={() => setIsPlaying(!isPlaying)}
                 className="p-2 rounded-full text-slate-700 dark:text-slate-300 hover:text-teal-500 hover:bg-teal-50 dark:hover:bg-slate-800 transition-colors"
                 title={isPlaying ? 'Pause Motion' : 'Play Motion'}
+                aria-label={isPlaying ? 'Pause Motion' : 'Play Motion'}
               >
                 {isPlaying ? <FiPause className="text-xs" /> : <FiPlay className="text-xs" />}
               </button>
@@ -160,6 +207,7 @@ const Skills = () => {
                 onClick={() => handleManualScroll('left')}
                 className="p-2 rounded-full text-slate-700 dark:text-slate-300 hover:text-teal-500 hover:bg-teal-50 dark:hover:bg-slate-800 transition-colors"
                 title="Scroll Left"
+                aria-label="Scroll Left"
               >
                 <FiChevronLeft className="text-sm" />
               </button>
@@ -168,6 +216,7 @@ const Skills = () => {
                 onClick={() => handleManualScroll('right')}
                 className="p-2 rounded-full text-slate-700 dark:text-slate-300 hover:text-teal-500 hover:bg-teal-50 dark:hover:bg-slate-800 transition-colors"
                 title="Scroll Right"
+                aria-label="Scroll Right"
               >
                 <FiChevronRight className="text-sm" />
               </button>
