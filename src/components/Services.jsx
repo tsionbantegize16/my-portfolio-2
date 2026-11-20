@@ -1,41 +1,87 @@
 import React from 'react';
-import { FiCode, FiDatabase, FiLayers, FiArrowRight, FiCheckCircle, FiCpu, FiCreditCard } from 'react-icons/fi';
+import {
+  FiCode,
+  FiDatabase,
+  FiLayers,
+  FiArrowRight,
+  FiCheckCircle,
+  FiCpu,
+  FiCreditCard,
+  FiGlobe
+} from 'react-icons/fi';
 
 const servicesData = [
   {
-    title: 'Fintech & Digital Banking Rails',
+    title: 'Fintech & Digital Banking Systems',
     icon: FiCreditCard,
-    description: 'Engineering secure digital lending workflows, agency banking tools, payment gateway integrations, and high-volume transaction processing.',
-    deliverables: ['Digital Lending Workflows', 'Payment Gateway Integrations', 'Agency Banking Portals'],
-    tags: ['Fintech', 'Digital Banking', 'Payment Gateways', 'Lending API'],
+    description:
+      'Engineering core banking platforms, offline-first SACCO solutions, USSD and IVR workflows, payment gateways, and open banking API portal infrastructure.',
+    deliverables: [
+      'Core SACCO & Microfinance Portals (Qershi Link)',
+      'USSD & IVR Rural Banking Workflows',
+      'Open Banking & API Portals'
+    ],
+    tags: ['Fintech', 'Digital Banking', 'USSD/IVR', 'Payment Gateways', 'SACCO'],
   },
   {
-    title: 'Enterprise Software Architecture',
+    title: 'Enterprise Software & ERP Systems',
     icon: FiCpu,
-    description: 'Designing resilient microservices and high-availability enterprise backend infrastructure tailored for scale and compliance.',
-    deliverables: ['Innovation Incubation System (IIMS)', 'High-Availability Node.js APIs', 'Microservice Security'],
-    tags: ['Architecture', 'Enterprise', 'Microservices', 'Node.js'],
+    description:
+      'Architecting resilient full-stack systems, institutional ERP workflows (BDA & GATO ERP), and backend services tailored for scale, security, and high reliability.',
+    deliverables: [
+      'Institutional Management Systems (BiTec IIMS)',
+      'Enterprise ERP Workflows & Database Modeling',
+      'High-Availability Node.js & Spring Boot Services'
+    ],
+    tags: ['Enterprise', 'Spring Boot', 'Node.js', 'PostgreSQL', 'Prisma'],
   },
   {
     title: 'Full-Stack Web & Mobile Engineering',
     icon: FiCode,
-    description: 'Blazing-fast, responsive web interfaces and mobile apps built with React, Next.js, Vue, Nuxt, and Tailwind CSS frameworks.',
-    deliverables: ['Custom Web Applications', 'Mobile App UI (React Native/Flutter)', 'Reusable Design Systems'],
-    tags: ['React', 'Next.js', 'Vue', 'Nuxt', 'Tailwind'],
+    description:
+      'Building performant, accessible web applications and cross-platform mobile apps using React, Next.js, Vue, Nuxt 3, Flutter, and Tailwind CSS.',
+    deliverables: [
+      'Production Web Apps (React, Next.js, Nuxt 3)',
+      'Mobile Apps with Clean Architecture (Flutter & React Native)',
+      'Reusable Design Systems & Figma-to-Code'
+    ],
+    tags: ['React', 'Next.js', 'Flutter', 'TypeScript', 'Tailwind'],
   },
   {
-    title: 'API Integration & Data Pipelines',
+    title: 'Backend Architecture & API Integration',
     icon: FiDatabase,
-    description: 'Robust RESTful API and GraphQL data pipelines connecting rich frontend client apps with PostgreSQL, Hasura, and headless CMS.',
-    deliverables: ['GraphQL & REST Client Architecture', 'Real-Time Data Synchronization', 'PostgreSQL & Hasura Models'],
-    tags: ['GraphQL', 'REST API', 'PostgreSQL', 'Hasura', 'Strapi'],
+    description:
+      'Designing robust RESTful APIs, relational data models, real-time database synchronization, and secure authentication pipelines connecting frontend clients.',
+    deliverables: [
+      'RESTful API Architecture & Postman Documentation',
+      'PostgreSQL, Prisma & Supabase Optimizations',
+      'Secure Role-Based Access Control (RBAC)'
+    ],
+    tags: ['REST APIs', 'PostgreSQL', 'Supabase', 'Express', 'Security'],
   },
   {
-    title: 'Innovation Management & Prototyping',
+    title: 'Incubation & Startup Ecosystem Platforms',
     icon: FiLayers,
-    description: 'Translating concepts into structured innovation management systems and rapid MVP prototypes for digital transformation hubs.',
-    deliverables: ['Innovation Management Tracking', 'Interactive Proof-of-Concepts', 'MVP Launch Acceleration'],
-    tags: ['KAB Digital', 'DX Valley Incubator', 'MVP Prototyping'],
+    description:
+      'Developing structured incubation tracking platforms, startup workflow evaluation tools, and rapid MVP prototypes for techno-entrepreneurship centers.',
+    deliverables: [
+      'Innovation Incubation Management Systems (IIMS)',
+      'Startup Intake & Pipeline Tracking',
+      'Rapid MVP Prototyping & Lean Validation'
+    ],
+    tags: ['BiTec Incubation', 'DX Valley', 'MVP Prototyping', 'Lean Startup'],
+  },
+  {
+    title: 'AI-Assisted & National Tech Infrastructure',
+    icon: FiGlobe,
+    description:
+      'Engineering purpose-driven software integrating AI-assisted classification (such as GreenLoop), AI cybersecurity platforms (SAI²), and national tech portals (IPv6 Ethiopia).',
+    deliverables: [
+      'Eco-Tech & Smart Recycling Applications',
+      'AI Security & Capacity Building Platforms',
+      'National Tech Advocacy & Infrastructure Hubs'
+    ],
+    tags: ['AI Security', 'Clean Architecture', 'Eco-Tech', 'IPv6 Initiative'],
   },
 ];
 
@@ -53,13 +99,13 @@ const Services = () => {
           <span>What I Offer</span>
           <h2>Services & Solutions</h2>
           <p className="text-slate-600 dark:text-slate-400 max-w-xl mx-auto text-base">
-            End-to-end digital solutions designed to elevate your brand and engage your audience.
+            End-to-end software engineering, inclusive fintech platforms, and scalable enterprise architectures tailored for growth and impact.
           </p>
         </div>
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {servicesData.map((service, index) => {
+          {servicesData.map((service) => {
             const Icon = service.icon;
             return (
               <div
