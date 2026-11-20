@@ -30,7 +30,7 @@ const Footer = () => {
               </span>
             </div>
             <p className="text-slate-400 text-sm max-w-sm leading-relaxed font-normal">
-              Full-Stack Engineer & UX Designer shaping user journeys, interface systems, and the frontend craft behind every KAB Digital Solution build.
+              Software Engineer | Full-Stack Web & Mobile Developer building inclusive fintech systems, core SACCO banking architectures, and resilient enterprise platforms.
             </p>
           </div>
 

@@ -7,13 +7,13 @@ const projectsData = [
   {
     id: 1,
     img: '/IIMS.jpg',
-    title: 'Innovation Incubation Management System (IIMS) @ KAB Digital Solution',
+    title: 'Innovation Incubation Management System (IIMS) @ BiTec',
     category: 'Enterprise & Innovation',
-    shortDesc: 'Designed and engineered at KAB Digital Solution for innovation and incubation tracking.',
-    longDesc: 'Lead the architecture and implementation of the Innovation Incubation Management System (IIMS) at KAB Digital Solution, facilitating structured innovation workflows, incubation tracking, and enterprise digital transformation.',
+    shortDesc: 'Engineered for Bahir Dar University BiTec to track and manage startup incubation workflows.',
+    longDesc: 'Architected and built the Innovation Incubation Management System (IIMS) for Bahir Dar University’s Business Incubation and Techno-Entrepreneurship Center (BiTec), facilitating structured startup intake, incubation milestones tracking, and enterprise digital transformation.',
     link: 'https://developers.coopbankoromiasc.com/',
     github: 'https://github.com/tsionbantegize',
-    tags: ['React', 'Next.js', 'KAB Digital', 'Node.js', 'Supabase'],
+    tags: ['React', 'Next.js', 'BiTec Incubation', 'Node.js', 'Supabase'],
     featured: true,
   },
   {

@@ -3,50 +3,55 @@ import { FaFacebookF, FaGitlab, FaGithub, FaInstagram, FaLinkedinIn } from 'reac
 import { FiArrowRight, FiDownload, FiTerminal, FiCode, FiCpu, FiCheck, FiCopy } from 'react-icons/fi';
 
 const roles = [
-  'Full-Stack Engineer & UX Designer',
-  'Software Engineer',
-  'Founder @ KAB Digital Solution',
-  'Full-Stack Developer'
+  'Software Engineer | Full-Stack Web & Mobile Developer',
+  'Fintech & Core Banking Architect',
+  'Full-Stack Web & Mobile Developer',
+  'Digital Ecosystems & Incubation Specialist'
 ];
 
 const codeSnippets = {
   profile: `// tsion-bantegize.ts
-const developer: FullStackEngineer = {
+const developer: SoftwareEngineer = {
   name: "Tsion Bantegize",
-  role: "Full-Stack Engineer & UX Designer",
-  founderOf: "KAB Digital Solution",
-  education: "B.S. Software Engineering (BDU '26)",
+  title: "Software Engineer | Full-Stack Web & Mobile Developer",
+  education: "B.Sc. Software Engineering (BDU '26)",
   
   specializations: [
-    "User Journeys & UI/UX Craft",
-    "Frontend Systems & Component Rails",
-    "Enterprise Software Architecture",
+    "Core SACCO & Offline-First Banking (Qershi Link)",
+    "Full-Stack Web & Cloud (React, Next.js, Nuxt 3)",
+    "Cross-Platform Mobile (Flutter, React Native)",
+    "Enterprise ERP & Incubation Architectures",
   ],
   
   collaborations: [
-    "KAB Digital Solution",
-    "EagleLion System Technology",
     "Cooperative Bank of Oromia (DX Valley)",
+    "EagleLion System Technology",
+    "Bahir Dar University (BiTec)",
+    "UNDP Regional Service Centre for Africa",
   ],
 
-  status: "🟢 Shaping UI Craft & Frontend Architectures",
+  status: "🟢 Engineering Inclusive Fintech & Digital Solutions",
 };`,
   architecture: `// enterprise-architecture.json
 {
-  "system": "Innovation Incubation Management System (IIMS)",
-  "founder": "Tsion Bantegize (KAB Digital)",
-  "security": "OAuth2.0 / JWT / Financial Data Encryption",
-  "frontend": ["React", "Next.js", "Vue.js", "Tailwind CSS"],
-  "backend": ["Node.js", "REST APIs", "GraphQL", "PostgreSQL"],
-  "resilience": "High-Availability Microservices 99.9%"
+  "flagshipSystems": [
+    "Qershi Link (700K ETB Grant Core Banking)",
+    "BiTec Innovation Incubation Management System (IIMS)",
+    "GreenLoop Mobile Recycling App (Flutter & AI)"
+  ],
+  "leadEngineer": "Tsion Bantegize",
+  "security": "OAuth2.0 / JWT / Financial Compliance & Encryption",
+  "frontend": ["React", "Next.js", "Vue.js", "Nuxt 3", "Flutter", "Tailwind CSS"],
+  "backend": ["Node.js", "Express", "Spring Boot", "PostgreSQL", "Prisma", "Supabase"],
+  "resilience": "Offline-First Architectures & High-Availability APIs"
 }`,
   stack: `// tech-stack.config.js
 module.exports = {
-  coreLanguages: ["TypeScript", "JavaScript", "Python"],
-  frontend: ["React.js", "Next.js", "Vue.js", "Nuxt.js"],
-  fintechRails: ["Digital Lending", "Payment Gateways", "Agency Banking"],
-  database: ["PostgreSQL", "GraphQL", "Hasura", "Node.js"],
-  tools: ["Docker", "Git", "Postman", "Figma Design Systems"]
+  languages: ["TypeScript", "JavaScript", "Dart", "Java", "Python"],
+  frontendAndMobile: ["React", "Next.js", "Vue.js", "Nuxt 3", "Flutter", "React Native"],
+  fintechRails: ["Qershi Link SACCO Core", "USSD & IVR Banking", "Coopbank Open Banking APIs"],
+  databasesAndDevOps: ["PostgreSQL", "Prisma", "Supabase", "Docker", "Vercel", "Railway"],
+  tools: ["Git/GitHub (tsionbantegize16)", "Postman", "Figma Design Systems"]
 };`
 };
 
@@ -119,7 +124,7 @@ const Home = () => {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
-            Full-Stack Engineer & UX Designer
+            Software Engineer | Full-Stack Web & Mobile Developer
           </div>
 
           {/* Headline */}
@@ -138,7 +143,7 @@ const Home = () => {
 
           {/* Description */}
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-xl mx-auto lg:mx-0 leading-relaxed font-normal">
-            Shapes user journeys, interface systems, and the frontend craft behind every <strong className="text-slate-900 dark:text-white">KAB Digital Solution</strong> build.
+            Engineering inclusive fintech platforms, core SACCO banking systems, and resilient full-stack web and mobile applications with high performance, clean architecture, and real-world impact.
           </p>
 
           {/* CTA Buttons */}
@@ -268,7 +273,7 @@ const Home = () => {
                   <span>UTF-8</span>
                 </div>
                 <div className="text-teal-400 font-semibold">
-                  Founder @ KAB Digital Solution
+                  Software Engineer | Full-Stack Web & Mobile Developer
                 </div>
               </div>
 

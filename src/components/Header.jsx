@@ -62,7 +62,7 @@ const Header = () => {
                 Tsion Bantegize
               </span>
               <span className="text-[10px] uppercase tracking-[0.2em] font-semibold text-teal-600 dark:text-teal-400">
-                Full-Stack Engineer & UX Designer
+                Software Engineer | Full-Stack
               </span>
             </div>
           </a>
