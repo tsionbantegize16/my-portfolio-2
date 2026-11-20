@@ -127,7 +127,7 @@ const Home = () => {
 
           {/* Description */}
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-xl mx-auto lg:mx-0 leading-relaxed font-normal">
-            I engineer inclusive fintech platforms, core SACCO banking systems, and resilient full-stack web and mobile applications with high performance, clean architecture, and real-world impact.
+            Building high-performance web and mobile applications, digital banking systems, and scalable software architectures with clean code and real-world impact.
           </p>
 
           {/* CTA Buttons */}
