@@ -2,13 +2,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import { FaFacebookF, FaGitlab, FaGithub, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 import { FiArrowRight, FiDownload, FiTerminal, FiCode, FiCpu, FiCheck, FiCopy } from 'react-icons/fi';
 
-const roles = [
-  'Software Engineer | Full-Stack Web & Mobile Developer',
-  'Fintech & Core Banking Architect',
-  'Full-Stack Web & Mobile Developer',
-  'Digital Ecosystems & Incubation Specialist'
-];
-
 const codeSnippets = {
   profile: `// tsion-bantegize.ts
 const developer: SoftwareEngineer = {
@@ -56,20 +49,11 @@ module.exports = {
 };
 
 const Home = () => {
-  const [roleIndex, setRoleIndex] = useState(0);
   const [activeCodeTab, setActiveCodeTab] = useState('profile');
   const [copiedCode, setCopiedCode] = useState(false);
   const [stats, setStats] = useState({ projects: 0, stack: 0, clients: 0 });
   const statsRef = useRef(null);
   const animatedRef = useRef(false);
-
-  // Rotating roles effect
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setRoleIndex((prev) => (prev + 1) % roles.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
 
   // Stats counter effect
   useEffect(() => {
@@ -124,7 +108,7 @@ const Home = () => {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
-            Software Engineer | Full-Stack Web & Mobile Developer
+            Available for Engineering Opportunities
           </div>
 
           {/* Headline */}
@@ -133,17 +117,17 @@ const Home = () => {
               Hi, I’m <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-500 via-brand-500 to-emerald-500">Tsion</span>.
             </h1>
 
-            {/* Rotating Role Display */}
+            {/* Role Display */}
             <div className="h-10 sm:h-12 flex items-center justify-center lg:justify-start text-xl sm:text-2xl font-bold text-slate-700 dark:text-slate-300">
-              <span className="text-teal-600 dark:text-teal-400 border-b-2 border-teal-500 pb-0.5 transition-all duration-300">
-                {roles[roleIndex]}
+              <span className="text-teal-600 dark:text-teal-400 border-b-2 border-teal-500 pb-0.5">
+                Software Engineer | Full-Stack Web & Mobile Developer
               </span>
             </div>
           </div>
 
           {/* Description */}
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-xl mx-auto lg:mx-0 leading-relaxed font-normal">
-            Engineering inclusive fintech platforms, core SACCO banking systems, and resilient full-stack web and mobile applications with high performance, clean architecture, and real-world impact.
+            I engineer inclusive fintech platforms, core SACCO banking systems, and resilient full-stack web and mobile applications with high performance, clean architecture, and real-world impact.
           </p>
 
           {/* CTA Buttons */}
